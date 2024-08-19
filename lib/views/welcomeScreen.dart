@@ -89,7 +89,7 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // Your button action here
+                          Get.offAllNamed('/signin');
                         },
                         child: Text(
                           'Continue',
@@ -103,29 +103,32 @@ class WelcomeScreen extends StatelessWidget {
                   SizedBox(height: 20.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: imageList.asMap().entries.map((entry) {
-                      return GestureDetector(
-                        onTap: () {
-                          _controller.onDotTap(entry.key);
-                        },
-                        child: Obx(
-                          () => Container(
-                            width: 8.0.w,
-                            height: 8.0.h,
-                            margin: EdgeInsets.symmetric(
-                              vertical: 8.0.h,
-                              horizontal: 4.0.w,
-                            ),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: _controller.currentIndex.value == entry.key
-                                  ? AppColors.secondary
-                                  : Colors.white.withOpacity(0.3),
+                    children: imageList.asMap().entries.map(
+                      (entry) {
+                        return GestureDetector(
+                          onTap: () {
+                            _controller.onDotTap(entry.key);
+                          },
+                          child: Obx(
+                            () => Container(
+                              width: 8.0.w,
+                              height: 8.0.h,
+                              margin: EdgeInsets.symmetric(
+                                vertical: 8.0.h,
+                                horizontal: 4.0.w,
+                              ),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color:
+                                    _controller.currentIndex.value == entry.key
+                                        ? AppColors.secondary
+                                        : Colors.white.withOpacity(0.3),
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    }).toList(),
+                        );
+                      },
+                    ).toList(),
                   ),
                 ],
               ),

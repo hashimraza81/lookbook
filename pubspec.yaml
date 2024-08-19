@@ -84,13 +84,15 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Agne-Regular.otf
-        - asset: assets/fonts/Agne 400.otf
         - asset: assets/fonts/Montserrat-Medium.ttf
         - asset: assets/fonts/Montserrat-LightItalic.ttf
         - asset: assets/fonts/Montserrat-Light.ttf
         - asset: assets/fonts/Montserrat-Regular.ttf
         - asset: assets/fonts/Montserrat-Thin.ttf
+
+    - family: Agne
+      fonts:
+        - asset: assets/fonts/Agne.ttf
        
   # fonts:
   #   - family: Schyler
