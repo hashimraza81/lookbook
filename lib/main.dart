@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Look Book',
           theme: AppTheme.lightThemeMode,
-          home: const WelcomeScreen(),
+          home: WelcomeScreen(),
         );
       },
     );

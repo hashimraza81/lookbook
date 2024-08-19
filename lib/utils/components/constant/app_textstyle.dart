@@ -12,9 +12,15 @@ import 'app_colors.dart';
 // Tenor Sans
 // Outfit
 
-final TextStyle aStyleBlack16400 = TextStyle(
-  fontFamily: 'Agne 400',
-  fontSize: 32.sp,
+final TextStyle aStyleBlack48400 = TextStyle(
+  fontFamily: 'Agne',
+  fontSize: 48.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
+
+final TextStyle tSStyleBlack18400 = GoogleFonts.tenorSans(
+  fontSize: 18.sp,
   color: AppColors.primaryColor,
   fontWeight: FontWeight.w400,
 );
