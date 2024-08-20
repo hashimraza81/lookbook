@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:lookbook/core/app_theme.dart';
+import 'package:lookbook/routes/app_routes.dart';
 import 'package:lookbook/views/welcomeScreen.dart';
 
 void main() {
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Look Book',
           theme: AppTheme.lightThemeMode,
+          initialRoute: '/',
+          getPages: AppRoutes.routes,
           home: WelcomeScreen(),
         );
       },

@@ -1,16 +1,26 @@
 import 'package:get/get.dart';
-import 'package:lookbook/views/designer/sign_in.dart';
+import 'package:lookbook/views/authentication/create_with_screen.dart';
+import 'package:lookbook/views/authentication/sign_in_screen.dart';
+import 'package:lookbook/views/authentication/sign_up_screen.dart';
 import 'package:lookbook/views/welcomeScreen.dart';
 
 class AppRoutes {
   static final routes = [
     GetPage(
-      name: 'welcome',
+      name: '/',
       page: () => WelcomeScreen(),
     ),
     GetPage(
-      name: 'signin',
-      page: () => const SignInScreen(),
+      name: '/signin',
+      page: () => SignInScreen(),
     ),
+    GetPage(
+      name: '/createwith',
+      page: () => const CreateWithScreen(),
+    ),
+    GetPage(
+      name: '/signup',
+      page: () => const SignUpScreen(),
+    )
   ];
 }

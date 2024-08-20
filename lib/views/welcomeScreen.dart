@@ -89,7 +89,7 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Get.offAllNamed('/signin');
+                          Get.toNamed('signin');
                         },
                         child: Text(
                           'Continue',
