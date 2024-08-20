@@ -19,6 +19,18 @@ final TextStyle aStyleBlack48400 = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
+final TextStyle aStyleBlack18600 = TextStyle(
+  fontFamily: 'Agne',
+  fontSize: 18.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w600,
+);
+final TextStyle aStyleBlack14400 = TextStyle(
+  fontFamily: 'Agne',
+  fontSize: 14.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
 final TextStyle aStyleBlack32400 = TextStyle(
   fontFamily: 'Agne',
   fontSize: 32.sp,
