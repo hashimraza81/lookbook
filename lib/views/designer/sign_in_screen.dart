@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:lookbook/controllers/sign_up_screen_controller.dart';
+import 'package:lookbook/controllers/sign_in_screen_controller.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
+import 'package:lookbook/utils/components/constant/app_images.dart';
+import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
+import 'package:lookbook/utils/components/textfield.dart';
 
-import '../../utils/components/constant/app_textstyle.dart';
-import '../../utils/components/textfield.dart';
+import '../../utils/components/socialbuttons.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
-  final SignUpController controller = Get.put(SignUpController());
+class SignInScreen extends StatelessWidget {
+  SignInScreen({super.key});
+  final SignInController controller = Get.put(SignInController());
+
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
-  final FocusNode nameFocusNode = FocusNode();
-  final FocusNode confirmFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'SIGN UP',
+                      'LOGIN ACCOUNT',
                       style: aStyleBlack48400.copyWith(
                         color: AppColors.white,
                       ),
@@ -59,14 +60,12 @@ class SignUpScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 20, vertical: 5),
                       ),
-                      onPressed: () {
-                        Get.toNamed('signin');
-                      },
+                      onPressed: () {},
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            "Already have an account? Login",
+                            "Don’t have an account? Signup",
                             style: tSStyleBlack16400.copyWith(
                               color: AppColors.white,
                             ),
@@ -94,30 +93,8 @@ class SignUpScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Full Name',
-                    style: tSStyleBlack16400.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
-                  textfield(
-                    text: 'Type Full Name',
-                    toHide: false,
-                    controller: controller.nameController,
-                    focusNode: nameFocusNode,
-                    nextFocusNode: emailFocusNode,
-                    errorText: controller.nameErrorText,
-                  ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
-                  Text(
-                    'Type Email',
-                    style: tSStyleBlack16400.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
+                    'Email',
+                    style: tSStyleBlack16400,
                   ),
                   SizedBox(
                     height: 10.0.h,
@@ -135,9 +112,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Text(
                     'Password',
-                    style: tSStyleBlack16400.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
+                    style: tSStyleBlack16400,
                   ),
                   SizedBox(
                     height: 10.0.h,
@@ -147,43 +122,88 @@ class SignUpScreen extends StatelessWidget {
                     toHide: true,
                     controller: controller.passwordController,
                     focusNode: passwordFocusNode,
-                    nextFocusNode: confirmFocusNode,
                     errorText: controller.passwordErrorText,
-                  ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
-                  Text(
-                    'Confirm Password',
-                    style: tSStyleBlack16400.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
-                  textfield(
-                    text: 'Type Confirm Password',
-                    toHide: true,
-                    controller: controller.confirmController,
-                    focusNode: confirmFocusNode,
-                    errorText: controller.confirmErrorText,
                   ),
                   SizedBox(
                     height: 40.0.h,
                   ),
-                  Obx(
-                    () => reusedButton(
-                      text: 'SIGNUP NOW!',
-                      ontap: controller.isButtonActive.value
-                          ? () {
-                              Get.toNamed('signin');
-                            }
-                          : null, // Disable the button if not active
-                      color: controller.isButtonActive.value
-                          ? AppColors.secondary
-                          : AppColors.greylight,
+                  Obx(() => reusedButton(
+                        text: 'LOGIN NOW!',
+                        ontap: controller.isButtonActive.value
+                            ? () {
+                                // Add login logic here
+                              }
+                            : null, // Disable the button if not active
+                        color: controller.isButtonActive.value
+                            ? AppColors.secondary
+                            : AppColors.greylight,
+                      )),
+                  SizedBox(
+                    height: 18.0.h,
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.r),
+                          side: const BorderSide(
+                            color: AppColors.greylight,
+                            width: 1.0,
+                          ),
+                        ),
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password',
+                        style: tSStyleBlack14400,
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 48.0.h,
+                  ),
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: Divider(
+                          color: AppColors.grey1,
+                          thickness: 1.5,
+                        ),
+                      ),
+                      Text(
+                        'OR',
+                        style: tSStyleBlack14400.copyWith(
+                          color: const Color(0xFF212121),
+                        ),
+                      ),
+                      const Expanded(
+                        child: Divider(
+                          color: AppColors.grey1,
+                          thickness: 1.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 40.0.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      socialbuttons(
+                        image: AppImages.googlelogo,
+                        ontap: () {},
+                      ),
+                      SizedBox(
+                        width: 22.0.w,
+                      ),
+                      socialbuttons(
+                        image: AppImages.applelogo,
+                        ontap: () {},
+                      ),
+                    ],
                   ),
                 ],
               ),

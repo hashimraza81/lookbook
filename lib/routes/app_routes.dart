@@ -20,7 +20,7 @@ class AppRoutes {
     ),
     GetPage(
       name: '/signup',
-      page: () => const SignUpScreen(),
+      page: () => SignUpScreen(),
     )
   ];
 }

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 
+import 'capitalize_word_input.dart';
+
 class textfield extends StatelessWidget {
   final bool toHide;
   final String text;
@@ -26,6 +28,9 @@ class textfield extends StatelessWidget {
       controller: controller,
       obscureText: toHide,
       focusNode: focusNode,
+      inputFormatters: [
+        CapitalizeWordsInputFormatter(),
+      ],
       textInputAction:
           nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
       onSubmitted: (_) {

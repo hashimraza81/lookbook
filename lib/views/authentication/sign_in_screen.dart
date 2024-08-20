@@ -5,10 +5,10 @@ import 'package:lookbook/controllers/sign_in_screen_controller.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
-import 'package:lookbook/utils/uiHelpers/reusedbutton.dart';
-import 'package:lookbook/utils/uiHelpers/textfield.dart';
+import 'package:lookbook/utils/components/reusedbutton.dart';
+import 'package:lookbook/utils/components/textfield.dart';
 
-import '../../utils/uiHelpers/socialbuttons.dart';
+import '../../utils/components/socialbuttons.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
@@ -129,17 +129,19 @@ class SignInScreen extends StatelessWidget {
                   SizedBox(
                     height: 40.0.h,
                   ),
-                  Obx(() => reusedButton(
-                        text: 'LOGIN NOW!',
-                        ontap: controller.isButtonActive.value
-                            ? () {
-                                // Add login logic here
-                              }
-                            : null, // Disable the button if not active
-                        color: controller.isButtonActive.value
-                            ? AppColors.secondary
-                            : AppColors.greylight,
-                      )),
+                  Obx(
+                    () => reusedButton(
+                      text: 'LOGIN NOW!',
+                      ontap: controller.isButtonActive.value
+                          ? () {
+                              // Add login logic here
+                            }
+                          : null, // Disable the button if not active
+                      color: controller.isButtonActive.value
+                          ? AppColors.secondary
+                          : AppColors.greylight,
+                    ),
+                  ),
                   SizedBox(
                     height: 18.0.h,
                   ),
