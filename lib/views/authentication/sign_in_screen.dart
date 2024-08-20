@@ -7,6 +7,7 @@ import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
+import 'package:lookbook/views/authentication/forgot_password_screen.dart';
 
 import '../../utils/components/socialbuttons.dart';
 
@@ -158,7 +159,32 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (BuildContext context) {
+                            return DraggableScrollableSheet(
+                              expand: false,
+                              builder: (_, controller) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20.r),
+                                      topRight: Radius.circular(20.r),
+                                    ),
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 24.w, vertical: 16.h),
+                                  child: ForgotPasswordScreen(),
+                                );
+                              },
+                            );
+                          },
+                        );
+                      },
                       child: Text(
                         'Forgot Password',
                         style: tSStyleBlack14400,
