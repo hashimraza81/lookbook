@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 
+// ignore: must_be_immutable
 class socialbuttons extends StatelessWidget {
   String image;
   final Callback ontap;
