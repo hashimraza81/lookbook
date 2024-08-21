@@ -7,6 +7,8 @@ import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 
+import '../utils/components/custom_bottom_navigation_bar.dart';
+
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
 
@@ -136,6 +138,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
+
     );
   }
 }
