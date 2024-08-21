@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/controllers/welcome_controller.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
-
-import '../utils/components/custom_bottom_navigation_bar.dart';
 
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({super.key});
@@ -71,14 +70,14 @@ class WelcomeScreen extends StatelessWidget {
                       color: AppColors.white,
                     ),
                   ),
-                  SizedBox(height: 10.h),
+                  10.ph,
                   Text(
                     'Discover the latest trends, styles, and exclusive collections.',
                     style: tSStyleBlack18400.copyWith(
                       color: AppColors.white,
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  20.ph,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -102,7 +101,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.h),
+                  20.ph,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: imageList.asMap().entries.map(
@@ -138,7 +137,6 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
-
     );
   }
 }

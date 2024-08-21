@@ -13,7 +13,6 @@ import 'app_colors.dart';
 // Outfit
 //quicksand
 
-
 /////--------------------agne-------------------////
 final TextStyle aStyleBlack48400 = TextStyle(
   fontFamily: 'Agne',
@@ -43,7 +42,6 @@ final TextStyle aStyleBlack32400 = TextStyle(
 
 /////--------------------tenor Sans-------------------////
 
-
 final TextStyle tSStyleBlack18400 = GoogleFonts.tenorSans(
   fontSize: 18.sp,
   color: AppColors.primaryColor,
@@ -62,8 +60,6 @@ final TextStyle tSStyleBlack14400 = GoogleFonts.tenorSans(
   fontWeight: FontWeight.w400,
 );
 
-
-
 /////--------------------outfit-------------------////
 final TextStyle oStyleBlack16600 = GoogleFonts.outfit(
   fontSize: 16.sp,
@@ -71,7 +67,17 @@ final TextStyle oStyleBlack16600 = GoogleFonts.outfit(
   fontWeight: FontWeight.w600,
 );
 
+final TextStyle oStyleBlack18600 = GoogleFonts.outfit(
+  fontSize: 18.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w600,
+);
 
+final TextStyle oStyleBlack12400 = GoogleFonts.outfit(
+  fontSize: 12.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
 
 /////--------------------Inter-------------------////
 final TextStyle iStyleBlack15400 = GoogleFonts.inter(
@@ -79,8 +85,6 @@ final TextStyle iStyleBlack15400 = GoogleFonts.inter(
   color: AppColors.primaryColor,
   fontWeight: FontWeight.w400,
 );
-
-
 
 /////--------------------Montserrat-------------------////
 

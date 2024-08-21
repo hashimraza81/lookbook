@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/controllers/sign_in_screen_controller.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
@@ -46,9 +47,7 @@ class SignInScreen extends StatelessWidget {
                         color: AppColors.white,
                       ),
                     ),
-                    SizedBox(
-                      height: 10.0.h,
-                    ),
+                    10.ph,
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -99,9 +98,7 @@ class SignInScreen extends StatelessWidget {
                     'Email',
                     style: tSStyleBlack16400,
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Email',
                     toHide: false,
@@ -110,16 +107,12 @@ class SignInScreen extends StatelessWidget {
                     nextFocusNode: passwordFocusNode,
                     errorText: controller.emailErrorText,
                   ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
+                  15.ph,
                   Text(
                     'Password',
                     style: tSStyleBlack16400,
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Password',
                     toHide: true,
@@ -127,15 +120,14 @@ class SignInScreen extends StatelessWidget {
                     focusNode: passwordFocusNode,
                     errorText: controller.passwordErrorText,
                   ),
-                  SizedBox(
-                    height: 40.0.h,
-                  ),
+                  40.ph,
                   Obx(
                     () => reusedButton(
+                      icon: Icons.arrow_forward_outlined,
                       text: 'LOGIN NOW!',
                       ontap: controller.isButtonActive.value
                           ? () {
-                              // Add login logic here
+                              Get.toNamed('addProduct');
                             }
                           : null, // Disable the button if not active
                       color: controller.isButtonActive.value
@@ -143,9 +135,7 @@ class SignInScreen extends StatelessWidget {
                           : AppColors.greylight,
                     ),
                   ),
-                  SizedBox(
-                    height: 18.0.h,
-                  ),
+                  18.ph,
                   Center(
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -191,9 +181,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 48.0.h,
-                  ),
+                  48.ph,
                   Row(
                     children: [
                       const Expanded(
@@ -216,9 +204,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 40.0.h,
-                  ),
+                  40.ph,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

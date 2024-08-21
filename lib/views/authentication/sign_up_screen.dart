@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/controllers/sign_up_screen_controller.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 
@@ -44,9 +45,7 @@ class SignUpScreen extends StatelessWidget {
                         color: AppColors.white,
                       ),
                     ),
-                    SizedBox(
-                      height: 10.0.h,
-                    ),
+                    10.ph,
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
@@ -71,9 +70,7 @@ class SignUpScreen extends StatelessWidget {
                               color: AppColors.white,
                             ),
                           ),
-                          SizedBox(
-                            width: 10.0.w,
-                          ),
+                          10.ph,
                           const Icon(
                             Icons.arrow_forward_outlined,
                             color: AppColors.white,
@@ -99,9 +96,7 @@ class SignUpScreen extends StatelessWidget {
                       color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Full Name',
                     toHide: false,
@@ -110,18 +105,14 @@ class SignUpScreen extends StatelessWidget {
                     nextFocusNode: emailFocusNode,
                     errorText: controller.nameErrorText,
                   ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
+                  15.ph,
                   Text(
                     'Type Email',
                     style: tSStyleBlack16400.copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Email',
                     toHide: false,
@@ -130,18 +121,14 @@ class SignUpScreen extends StatelessWidget {
                     nextFocusNode: passwordFocusNode,
                     errorText: controller.emailErrorText,
                   ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
+                  15.ph,
                   Text(
                     'Password',
                     style: tSStyleBlack16400.copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Password',
                     toHide: true,
@@ -150,18 +137,14 @@ class SignUpScreen extends StatelessWidget {
                     nextFocusNode: confirmFocusNode,
                     errorText: controller.passwordErrorText,
                   ),
-                  SizedBox(
-                    height: 15.0.h,
-                  ),
+                  15.ph,
                   Text(
                     'Confirm Password',
                     style: tSStyleBlack16400.copyWith(
                       color: AppColors.primaryColor,
                     ),
                   ),
-                  SizedBox(
-                    height: 10.0.h,
-                  ),
+                  10.ph,
                   textfield(
                     text: 'Type Confirm Password',
                     toHide: true,
@@ -169,11 +152,10 @@ class SignUpScreen extends StatelessWidget {
                     focusNode: confirmFocusNode,
                     errorText: controller.confirmErrorText,
                   ),
-                  SizedBox(
-                    height: 40.0.h,
-                  ),
+                  40.ph,
                   Obx(
                     () => reusedButton(
+                      icon: Icons.arrow_forward_outlined,
                       text: 'SIGNUP NOW!',
                       ontap: controller.isButtonActive.value
                           ? () {

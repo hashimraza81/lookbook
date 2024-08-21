@@ -49,4 +49,33 @@ class ValidationService {
     }
     return null;
   }
+
+  // Add Product screen Field Validation
+  static Map<String, String?> validateFields({
+    required String category,
+    required String price,
+    required String description,
+    required String phone,
+    required String email,
+  }) {
+    final errors = <String, String?>{};
+
+    if (category.isEmpty) {
+      errors['category'] = "Category can't be empty";
+    }
+    if (price.isEmpty) {
+      errors['price'] = "Price can't be empty";
+    }
+    if (description.isEmpty) {
+      errors['description'] = "Product Description can't be empty";
+    }
+    if (phone.isEmpty) {
+      errors['phone'] = "Phone Number can't be empty";
+    }
+    if (email.isEmpty) {
+      errors['email'] = "Email can't be empty";
+    }
+
+    return errors;
+  }
 }

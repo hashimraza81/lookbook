@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
@@ -35,20 +36,18 @@ class CreateWithScreen extends StatelessWidget {
                     style: aStyleBlack48400,
                   ),
                 ),
-                SizedBox(
-                  height: 20.0.h,
-                ),
+                20.ph,
                 reusedButton(
+                  icon: Icons.arrow_forward_outlined,
                   text: 'DESIGNER',
                   ontap: () {
                     Get.toNamed('signup');
                   },
                   color: AppColors.secondary,
                 ),
-                SizedBox(
-                  height: 15.0.h,
-                ),
+                15.ph,
                 reusedButton(
+                  icon: Icons.arrow_forward_outlined,
                   text: 'CUSTOMER',
                   ontap: () {
                     Get.toNamed('signup');

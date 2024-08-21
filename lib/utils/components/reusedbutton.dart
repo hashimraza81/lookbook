@@ -9,11 +9,13 @@ class reusedButton extends StatelessWidget {
   String text;
   final void Function()? ontap;
   Color color;
+  IconData? icon;
   reusedButton({
     super.key,
     required this.text,
     required this.ontap,
     required this.color,
+    this.icon,
   });
 
   @override
@@ -39,8 +41,8 @@ class reusedButton extends StatelessWidget {
             text,
             style: oStyleBlack16600.copyWith(color: AppColors.white),
           ),
-          const Icon(
-            Icons.arrow_forward_outlined,
+          Icon(
+            icon,
             color: AppColors.white,
           )
         ],

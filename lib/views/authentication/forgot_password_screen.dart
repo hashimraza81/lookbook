@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
@@ -36,36 +37,29 @@ class ForgotPasswordScreen extends StatelessWidget {
                   color: AppColors.primaryColor,
                 ),
               ),
-              SizedBox(
-                height: 5.0.h,
-              ),
+              5.ph,
               Text(
                 'Enter your email for the verification proccesss, we will send you a email on your email.',
                 style: tSStyleBlack16400,
               ),
-              SizedBox(
-                height: 30.0.h,
-              ),
+              30.ph,
               Text(
                 'Email',
                 style: tSStyleBlack16400.copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
-              SizedBox(
-                height: 10.0.h,
-              ),
+              10.ph,
               textfield(
                 text: 'Type Email',
                 toHide: false,
                 controller: controller.forgotPasswordController,
                 focusNode: forgotFocusNode,
               ),
-              SizedBox(
-                height: 20.0.h,
-              ),
+              20.ph,
               Obx(
                 () => reusedButton(
+                  icon: Icons.arrow_forward_outlined,
                   text: 'CONTINUE',
                   ontap: controller.isButtonActive.value
                       ? controller.submit

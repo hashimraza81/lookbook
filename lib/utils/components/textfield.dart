@@ -12,6 +12,8 @@ class textfield extends StatelessWidget {
   final FocusNode focusNode;
   final FocusNode? nextFocusNode;
   final String? errorText;
+  final TextInputType? keyboardType;
+  final bool isNumeric;
   const textfield({
     super.key,
     required this.text,
@@ -20,11 +22,14 @@ class textfield extends StatelessWidget {
     required this.focusNode,
     this.nextFocusNode,
     this.errorText,
+    this.keyboardType,
+    this.isNumeric = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      keyboardType: isNumeric ? TextInputType.number : keyboardType,
       controller: controller,
       obscureText: toHide,
       focusNode: focusNode,
