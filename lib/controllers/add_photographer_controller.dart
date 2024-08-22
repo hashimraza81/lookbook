@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lookbook/utils/validations/validator.dart';
 
 class AddPhotographerController extends GetxController {
@@ -10,6 +11,7 @@ class AddPhotographerController extends GetxController {
 
   final isFormComplete = false.obs;
   final RxString _emailErrorText = ''.obs;
+  final RxString selectedImagePath = ''.obs;
 
   final FocusNode nameFocusNode = FocusNode();
   final FocusNode socialFocusNode = FocusNode();
@@ -36,7 +38,17 @@ class AddPhotographerController extends GetxController {
         socialController.text.isNotEmpty &&
         phoneController.text.isNotEmpty &&
         emailController.text.isNotEmpty &&
+        selectedImagePath.isNotEmpty &&
         _emailErrorText.value.isEmpty;
+  }
+
+  Future<void> pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      selectedImagePath.value = pickedFile.path;
+    }
+    _validateForm(); // Revalidate form after image selection
   }
 
   @override

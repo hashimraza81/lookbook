@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lookbook/utils/validations/validator.dart';
 
 class AddProductController extends GetxController {
@@ -20,6 +23,7 @@ class AddProductController extends GetxController {
   final RxString _categoryErrorText = ''.obs;
   final RxString _descriptionErrorText = ''.obs;
   final RxString _priceErrorText = ''.obs;
+  final List<File> selectedImages = <File>[].obs;
 
   final FocusNode categoryFocusNode = FocusNode();
   final FocusNode dressFocusNode = FocusNode();
@@ -52,6 +56,7 @@ class AddProductController extends GetxController {
     phoneController.addListener(_validateField);
     priceController.addListener(_validateField);
     descriptionController.addListener(_validateField);
+    categoryController.addListener(_validateField);
   }
 
   void _validateField() {
@@ -77,7 +82,27 @@ class AddProductController extends GetxController {
         _phoneErrorText.value.isEmpty &&
         _categoryErrorText.value.isEmpty &&
         _priceErrorText.value.isEmpty &&
-        _descriptionErrorText.value.isEmpty;
+        _descriptionErrorText.value.isEmpty &&
+        selectedImages.isNotEmpty;
+  }
+
+  Future<void> pickImage() async {
+    if (selectedImages.length < 5) {
+      // Limiting to 5 images
+      final picker = ImagePicker();
+      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null) {
+        selectedImages.add(File(pickedFile.path));
+        _validateForm(); // Revalidate the form when an image is added
+      }
+    } else {
+      Get.snackbar('Limit Reached', 'You can only upload 5 images.');
+    }
+  }
+
+  void removeImage(int index) {
+    selectedImages.removeAt(index);
+    _validateForm(); // Revalidate the form when an image is removed
   }
 
   @override

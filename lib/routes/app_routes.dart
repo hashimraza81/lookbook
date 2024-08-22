@@ -7,6 +7,7 @@ import 'package:lookbook/views/authentication/sign_in_screen.dart';
 import 'package:lookbook/views/authentication/sign_up_screen.dart';
 import 'package:lookbook/views/designer/add_photographer_screen.dart';
 import 'package:lookbook/views/designer/addproduct_screen1.dart';
+import 'package:lookbook/views/designer/product_detail.dart';
 import 'package:lookbook/views/welcomeScreen.dart';
 
 class AppRoutes {
@@ -46,6 +47,10 @@ class AppRoutes {
     GetPage(
       name: '/addPhotographer',
       page: () => AddPhotographerScreen(),
-    )
+    ),
+    GetPage(
+      name: '/productDetail',
+      page: () => ProductDetail(),
+    ),
   ];
 }

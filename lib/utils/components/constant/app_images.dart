@@ -18,4 +18,5 @@ class AppImages extends AssetImage {
   static const String shopping = '$_iconPath/shopping.svg';
   static const String img = '$_iconPath/img.svg';
   static const String add = '$_iconPath/add.svg';
+  static const String plus = '$_iconPath/plus.svg';
 }

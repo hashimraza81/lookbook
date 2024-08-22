@@ -60,6 +60,12 @@ final TextStyle tSStyleBlack14400 = GoogleFonts.tenorSans(
   fontWeight: FontWeight.w400,
 );
 
+final TextStyle tSStyleBlack9400 = GoogleFonts.tenorSans(
+  fontSize: 9.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
+
 /////--------------------outfit-------------------////
 final TextStyle oStyleBlack16600 = GoogleFonts.outfit(
   fontSize: 16.sp,

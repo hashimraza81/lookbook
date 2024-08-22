@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:lookbook/controllers/add_photographer_controller.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/custom_app_bar.dart';
@@ -47,35 +50,65 @@ class AddPhotographerScreen extends StatelessWidget {
                   ),
                 ),
                 30.ph,
-                Center(
-                  child: Container(
-                    color: const Color(0xFFF6F9FB),
-                    child: DottedBorder(
-                      color: AppColors.secondary,
-                      dashPattern: const [6, 3],
-                      borderType: BorderType.RRect,
-                      radius: const Radius.circular(10),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 90.0.w,
-                          vertical: 55.0.h,
-                        ),
-                        child: SvgPicture.asset(
-                          AppImages.img,
-                          color: AppColors.greylight,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                15.ph,
-                Center(
-                  child: Text(
-                    'Add Image',
-                    style: tSStyleBlack18400.copyWith(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
+                Obx(
+                  () {
+                    return Column(
+                      children: [
+                        controller.selectedImagePath.value.isEmpty
+                            ? GestureDetector(
+                                onTap: () async {
+                                  final picker = ImagePicker();
+                                  final pickedFile = await picker.pickImage(
+                                      source: ImageSource.gallery);
+                                  if (pickedFile != null) {
+                                    controller.selectedImagePath.value =
+                                        pickedFile.path;
+                                  }
+                                },
+                                child: Center(
+                                  child: Container(
+                                    color: const Color(0xFFF6F9FB),
+                                    child: DottedBorder(
+                                      color: AppColors.secondary,
+                                      dashPattern: const [6, 3],
+                                      borderType: BorderType.RRect,
+                                      radius: const Radius.circular(10),
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 90.0.w,
+                                          vertical: 55.0.h,
+                                        ),
+                                        child: SvgPicture.asset(
+                                          AppImages.img,
+                                          color: AppColors.greylight,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Center(
+                                child: Image.file(
+                                  File(controller.selectedImagePath.value),
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 250.h,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                        if (controller.selectedImagePath.value.isEmpty)
+                          SizedBox(height: 15.h), // Conditional spacing
+                        if (controller.selectedImagePath.value.isEmpty)
+                          Center(
+                            child: Text(
+                              'Add Image',
+                              style: tSStyleBlack18400.copyWith(
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
+                          ),
+                      ],
+                    );
+                  },
                 ),
                 20.ph,
                 Text(
@@ -159,6 +192,7 @@ class AddPhotographerScreen extends StatelessWidget {
                       ? Column(
                           children: [
                             Button(
+                              ontap: () {},
                               text: 'SAVE',
                               textcolor: AppColors.white,
                               bgColor: AppColors.secondary,
@@ -166,6 +200,9 @@ class AddPhotographerScreen extends StatelessWidget {
                             ),
                             15.ph,
                             Button(
+                              ontap: () {
+                                Get.toNamed('productDetail');
+                              },
                               text: 'PREVIEW',
                               textcolor: AppColors.secondary,
                               bgColor: AppColors.white,
@@ -196,6 +233,7 @@ class Button extends StatelessWidget {
   String text;
   Color textcolor;
   Color bgColor;
+  final void Function()? ontap;
   Color borderColor;
   Button({
     super.key,
@@ -203,6 +241,7 @@ class Button extends StatelessWidget {
     required this.textcolor,
     required this.bgColor,
     required this.borderColor,
+    required this.ontap,
   });
 
   @override
@@ -220,7 +259,7 @@ class Button extends StatelessWidget {
           vertical: 18,
         ),
       ),
-      onPressed: () {},
+      onPressed: ontap,
       child: Center(
         child: Text(
           text,
