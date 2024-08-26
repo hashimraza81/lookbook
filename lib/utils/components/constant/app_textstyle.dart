@@ -107,6 +107,11 @@ final TextStyle iStyleBlack15400 = GoogleFonts.inter(
   color: AppColors.primaryColor,
   fontWeight: FontWeight.w400,
 );
+final TextStyle iStyleBlack14400 = GoogleFonts.inter(
+  fontSize: 14.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
 
 final TextStyle iStyleBlack13700 = GoogleFonts.inter(
   fontSize: 13.sp,

@@ -42,6 +42,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   dotted_border: ^2.0.0
   image_picker: ^1.1.2
+  global_bottom_navigation_bar: ^0.0.8
 
 dev_dependencies:
   flutter_test:

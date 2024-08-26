@@ -2,19 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:lookbook/controllers/designer_profile_screen_controller.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/constant/app_images.dart';
-import 'package:lookbook/utils/components/constant/app_textstyle.dart';
-import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/custom_bottom_navigation_bar.dart';
-import 'package:lookbook/utils/components/reusedbutton.dart';
-import 'package:lookbook/utils/components/textfield.dart';
 
+import '../../controllers/designer_profile_screen_controller.dart';
+import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
+import '../../utils/components/constant/app_images.dart';
+import '../../utils/components/constant/app_textstyle.dart';
+import '../../utils/components/custom_app_bar.dart';
+import '../../utils/components/reusedbutton.dart';
+import '../../utils/components/textfield.dart';
 
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({super.key});
+class AdminProfileScreen extends StatefulWidget {
+  const AdminProfileScreen({super.key});
+
+  @override
+  State<AdminProfileScreen> createState() => _AdminProfileScreenState();
+}
+
+class _AdminProfileScreenState extends State<AdminProfileScreen> {
   final DesignerProfileScreenController controller =
       Get.put(DesignerProfileScreenController());
   @override
@@ -26,8 +33,6 @@ class ProfileScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const CustomAppBar(),
-                20.ph,
                 Center(
                   child: Text(
                     'PROFILE',
@@ -142,8 +147,9 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: CustomBottomNavigationBar(),
+
       ),
     );
+
   }
 }

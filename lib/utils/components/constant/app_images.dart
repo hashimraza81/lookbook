@@ -27,4 +27,17 @@ class AppImages extends AssetImage {
   static const String phone = '$_iconPath/phone.svg';
   static const String mail = '$_iconPath/mail.svg';
   static const String social = '$_iconPath/social.svg';
+  static const String conversationsLogo = '$_iconPath/ConversationsLogo.svg';
+  static const String customersLogo = '$_iconPath/CustomersLogo.svg';
+  static const String designersLogo = '$_iconPath/DesignersLogo.svg';
+  static const String productsLogo = '$_iconPath/ProductsLogo.svg';
+  static const String reportsLogo = '$_iconPath/ReportsLogo.svg';
+
+///admin custom bottom navigation bar icons
+  static const String homeIcon = '$_iconPath/HomeIcon.svg';
+  static const String messageIcon = '$_iconPath/MessageIcon.svg';
+  static const String notificationIcon = '$_iconPath/NotificationIcon.svg';
+  static const String profileIcon = '$_iconPath/ProfileIcon.svg';
+
+
 }

@@ -97,7 +97,7 @@ class DesignerHomeScrenn extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(
                                 left: 10.0.w,
-                                top: 12.0.h,
+                                top: 2.0.h,
                               ),
                               child: Text(
                                 "€120",
