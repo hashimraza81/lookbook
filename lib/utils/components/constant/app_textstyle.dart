@@ -37,7 +37,7 @@ final TextStyle aStyleBlack32400 = TextStyle(
   fontFamily: 'Agne',
   fontSize: 32.sp,
   color: AppColors.primaryColor,
-  fontWeight: FontWeight.w400,
+  fontWeight: FontWeight.w600,
 );
 
 /////--------------------tenor Sans-------------------////
@@ -56,6 +56,11 @@ final TextStyle tSStyleBlack16400 = GoogleFonts.tenorSans(
 
 final TextStyle tSStyleBlack14400 = GoogleFonts.tenorSans(
   fontSize: 14.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w400,
+);
+final TextStyle tSStyleBlack12400 = GoogleFonts.tenorSans(
+  fontSize: 12.sp,
   color: AppColors.primaryColor,
   fontWeight: FontWeight.w400,
 );
@@ -85,11 +90,28 @@ final TextStyle oStyleBlack12400 = GoogleFonts.outfit(
   fontWeight: FontWeight.w400,
 );
 
+final TextStyle oStyleBlack14300 = GoogleFonts.outfit(
+  fontSize: 14.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w300,
+);
+final TextStyle oStyleBlack12600 = GoogleFonts.outfit(
+  fontSize: 12.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w600,
+);
+
 /////--------------------Inter-------------------////
 final TextStyle iStyleBlack15400 = GoogleFonts.inter(
   fontSize: 15.sp,
   color: AppColors.primaryColor,
   fontWeight: FontWeight.w400,
+);
+
+final TextStyle iStyleBlack13700 = GoogleFonts.inter(
+  fontSize: 13.sp,
+  color: AppColors.primaryColor,
+  fontWeight: FontWeight.w700,
 );
 
 /////--------------------Montserrat-------------------////

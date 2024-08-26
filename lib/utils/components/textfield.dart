@@ -8,22 +8,24 @@ import 'capitalize_word_input.dart';
 class textfield extends StatelessWidget {
   final bool toHide;
   final String text;
-  final TextEditingController controller;
-  final FocusNode focusNode;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
   final FocusNode? nextFocusNode;
   final String? errorText;
   final TextInputType? keyboardType;
   final bool isNumeric;
+  final IconData? optionalIcon;
   const textfield({
     super.key,
     required this.text,
     required this.toHide,
-    required this.controller,
-    required this.focusNode,
+    this.controller,
+    this.focusNode,
     this.nextFocusNode,
     this.errorText,
     this.keyboardType,
     this.isNumeric = false,
+    this.optionalIcon,
   });
 
   @override
@@ -89,6 +91,9 @@ class textfield extends StatelessWidget {
           ),
         ),
         errorText: errorText,
+        suffixIcon: optionalIcon != null
+            ? Icon(optionalIcon, color: AppColors.greylight)
+            : null,
       ),
       style: tSStyleBlack16400,
     );

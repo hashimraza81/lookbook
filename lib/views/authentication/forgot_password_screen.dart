@@ -40,7 +40,9 @@ class ForgotPasswordScreen extends StatelessWidget {
               5.ph,
               Text(
                 'Enter your email for the verification proccesss, we will send you a email on your email.',
-                style: tSStyleBlack16400,
+                style: tSStyleBlack16400.copyWith(
+                  color: AppColors.text2,
+                ),
               ),
               30.ph,
               Text(

@@ -7,7 +7,7 @@ class ProductDetailController extends GetxController {
   var currentIndex = 0.obs;
 
   void onDotTap(int index) {
-    carouselSliderController.jumpToPage(index);
+    carouselSliderController.animateToPage(index);
     currentIndex.value = index;
   }
 

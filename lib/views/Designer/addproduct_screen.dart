@@ -61,12 +61,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   Get.toNamed('addProduct1');
                 },
                 color: AppColors.secondary,
-              )
+              ),
+              10.ph,
             ],
           ),
         ),
       ),
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
 }

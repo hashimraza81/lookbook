@@ -35,7 +35,9 @@ class AddSociallinks extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                   icon: const Icon(
                     Icons.close,
                   ),

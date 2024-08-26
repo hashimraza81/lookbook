@@ -13,6 +13,7 @@ import 'package:lookbook/utils/components/custom_bottom_navigation_bar.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
 
+import '../../utils/components/add_socialLinks.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
@@ -150,8 +151,36 @@ class AddPhotographerScreen extends StatelessWidget {
                       ),
                     ),
                     10.pw,
-                    SvgPicture.asset(
-                      AppImages.add,
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          builder: (BuildContext context) {
+                            return DraggableScrollableSheet(
+                              expand: false,
+                              builder: (_, controller) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30.r),
+                                      topRight: Radius.circular(30.r),
+                                    ),
+                                  ),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 0.w, vertical: 0.h),
+                                  child: AddSociallinks(),
+                                );
+                              },
+                            );
+                          },
+                        );
+                      },
+                      child: SvgPicture.asset(
+                        AppImages.add,
+                      ),
                     ),
                   ],
                 ),
@@ -222,7 +251,7 @@ class AddPhotographerScreen extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: const CustomBottomNavigationBar(),
+        bottomNavigationBar: CustomBottomNavigationBar(),
       ),
     );
   }

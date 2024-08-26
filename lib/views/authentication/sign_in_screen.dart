@@ -127,7 +127,7 @@ class SignInScreen extends StatelessWidget {
                       text: 'LOGIN NOW!',
                       ontap: controller.isButtonActive.value
                           ? () {
-                              Get.toNamed('addProduct');
+                              Get.toNamed('home');
                             }
                           : null, // Disable the button if not active
                       color: controller.isButtonActive.value

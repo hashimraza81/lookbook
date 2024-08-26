@@ -8,6 +8,10 @@ class AppImages extends AssetImage {
   static const String splash = '$_assetsPath/splash.png';
   static const String splash1 = '$_assetsPath/splash1.png';
   static const String splash2 = '$_assetsPath/splash2.png';
+  static const String profile = '$_assetsPath/profile.png';
+  static const String photographer = '$_assetsPath/photographer.png';
+  static const String noti = '$_assetsPath/noti.png';
+  static const String product1 = '$_assetsPath/product1.png';
 
 //Icons Svg
 
@@ -19,4 +23,8 @@ class AppImages extends AssetImage {
   static const String img = '$_iconPath/img.svg';
   static const String add = '$_iconPath/add.svg';
   static const String plus = '$_iconPath/plus.svg';
+
+  static const String phone = '$_iconPath/phone.svg';
+  static const String mail = '$_iconPath/mail.svg';
+  static const String social = '$_iconPath/social.svg';
 }

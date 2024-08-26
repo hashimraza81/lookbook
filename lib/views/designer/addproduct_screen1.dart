@@ -433,11 +433,12 @@ class AddproductScreen1 extends StatelessWidget {
                         : AppColors.greylight,
                   ),
                 ),
+                10.ph,
               ],
             ),
           ),
         ),
-        bottomNavigationBar: const CustomBottomNavigationBar(),
+        bottomNavigationBar: CustomBottomNavigationBar(),
       ),
     );
   }
