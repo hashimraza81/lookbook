@@ -56,10 +56,16 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                 children: [
                   Container(
                     height: 300.h,
-                    color: Colors.cyan,
-                    child: Image.asset(
-                      AppImages.photographer,
-                      fit: BoxFit.cover,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: Colors.cyan,
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.r),
+                      child: Image.asset(
+                        AppImages.photographer,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   19.ph,
@@ -102,7 +108,9 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                     width: 162.w,
                     child: ElevatedButton(
                       onPressed: () {
-                        showCustomDialog(context);
+                        showCustomDialog(context,
+                            title: 'Sure you want to block?',
+                            message: 'Are you sure you want to block this?');
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

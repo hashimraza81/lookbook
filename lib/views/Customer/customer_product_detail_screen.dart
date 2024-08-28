@@ -1,25 +1,33 @@
+import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/constant/app_textstyle.dart';
-import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
-import 'package:lookbook/utils/components/reusedbutton.dart';
-import 'package:lookbook/views/designer/designer_profile_screen.dart';
-import 'package:lookbook/views/designer/photographer_profile_screen.dart';
 
 import '../../controllers/product_detail_controller.dart';
 import '../../utils/components/build_list.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
+import '../../utils/components/constant/app_textstyle.dart';
+import '../../utils/components/custom_app_bar.dart';
+import '../../utils/components/reusedbutton.dart';
+import '../Designer/designer_profile_screen.dart';
+import '../Designer/photographer_profile_screen.dart';
 
-class ProductDetail extends StatelessWidget {
-  ProductDetail({super.key});
+class CustomerProductDetailScreen extends StatefulWidget {
+  const CustomerProductDetailScreen({super.key});
 
+  @override
+  State<CustomerProductDetailScreen> createState() =>
+      _CustomerProductDetailScreenState();
+}
+
+class _CustomerProductDetailScreenState
+    extends State<CustomerProductDetailScreen> {
   final ProductDetailController controller = Get.put(ProductDetailController());
-
   final List<String> imageList = [
     AppImages.splash,
     AppImages.splash1,
@@ -165,10 +173,20 @@ class ProductDetail extends StatelessWidget {
                 ),
                 30.ph,
                 reusedButton(
-                  text: 'EDIT',
+                  text: 'Contact Designer',
                   ontap: () {},
                   color: AppColors.secondary,
-                  icon: Icons.edit,
+                  icon: Icons.east,
+                ),
+                10.ph,
+                SizedBox(
+                  width: 177.w,
+                  child: reusedButton(
+                    text: 'Report',
+                    ontap: () {},
+                    color: AppColors.red,
+                    icon: Icons.east,
+                  ),
                 ),
                 10.ph,
               ],

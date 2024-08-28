@@ -68,8 +68,10 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                         borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               CircleAvatar(
                                 radius: 40.0.r,
@@ -104,12 +106,13 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                               children: [
                                 SizedBox(
                                   height: 64.h,
-                                  width: 370.w,
+                                  width: 340.w,
                                   child: Text(
                                     'This behavior has not only affected the overall morale of the team but has also hindered our ability to work effectively and cohesively.',
                                     style: iStyleBlack14400.copyWith(
                                       color: AppColors.text3,
                                     ),
+                                    textAlign: TextAlign.justify,
                                   ),
                                 )
                               ])
@@ -125,7 +128,9 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                 width: 162.w,
                 child: ElevatedButton(
                   onPressed: () {
-                    showCustomDialog(context);
+                    showCustomDialog(context,
+                        title: 'Sure you want to block?',
+                        message: 'Are you sure you want to block this?');
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:lookbook/utils/components/constant/app_colors.dart';
-import 'package:lookbook/utils/components/constant/app_images.dart';
+import 'package:get/get.dart';
+import '../../controllers/bottom_nav_controller.dart';
+import '../../utils/components/constant/app_colors.dart';
 import 'constant/app_textstyle.dart';
 
-class AdminCustomBottomNavigationBar extends StatelessWidget {
+class DesignerBottomNavigationBar extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onTap;
 
-  AdminCustomBottomNavigationBar({
+  const DesignerBottomNavigationBar({
     Key? key,
     required this.selectedIndex,
     required this.onTap,
@@ -27,40 +27,26 @@ class AdminCustomBottomNavigationBar extends StatelessWidget {
         currentIndex: selectedIndex,
         onTap: onTap,
         type: BottomNavigationBarType.fixed,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              selectedIndex == 0 ? AppImages.homeIcon2 : AppImages.homeIcon,
-            ),
+            icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              selectedIndex == 1
-                  ? AppImages.messageIcon2
-                  : AppImages.messageIcon,
-            ),
-            label: 'Messages',
+            icon: Icon(Icons.message),
+            label: 'Message',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              selectedIndex == 2
-                  ? AppImages.notificationIcon2
-                  : AppImages.notificationIcon,
-            ),
+            icon: Icon(Icons.notifications),
             label: 'Notification',
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              selectedIndex == 3
-                  ? AppImages.profileIcon2
-                  : AppImages.profileIcon,
-            ),
+            icon: Icon(Icons.person),
             label: 'Profile',
           ),
         ],
         selectedItemColor: AppColors.secondary,
-        unselectedItemColor: AppColors.primaryColor,
+        unselectedItemColor: Colors.black,
         showSelectedLabels: true,
         showUnselectedLabels: false,
         selectedLabelStyle: qStyleBlack12500,

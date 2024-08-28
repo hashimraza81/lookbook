@@ -9,7 +9,7 @@ import 'package:lookbook/utils/components/add_category_bottomSheet.dart';
 import 'package:lookbook/utils/components/add_socialLinks.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/custom_bottom_navigation_bar.dart';
+import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
 
@@ -438,7 +438,6 @@ class AddproductScreen1 extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: CustomBottomNavigationBar(),
       ),
     );
   }

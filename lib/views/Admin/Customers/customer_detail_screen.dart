@@ -100,7 +100,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                     width: 162.w,
                     child: ElevatedButton(
                       onPressed: () {
-                        showCustomDialog(context);
+                        showCustomDialog(context, title: 'Sure you want to block?', message: 'Are you sure you want to block this?');
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

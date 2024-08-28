@@ -7,9 +7,11 @@ import 'package:lookbook/views/authentication/sign_in_screen.dart';
 import 'package:lookbook/views/authentication/sign_up_screen.dart';
 import 'package:lookbook/views/designer/add_photographer_screen.dart';
 import 'package:lookbook/views/designer/addproduct_screen1.dart';
-import 'package:lookbook/views/designer/home_screnn.dart';
 import 'package:lookbook/views/designer/product_detail.dart';
 import 'package:lookbook/views/welcomeScreen.dart';
+
+import '../views/Customer/customer_product_detail_screen.dart';
+import '../views/Designer/home_screnn.dart';
 
 class AppRoutes {
   static final routes = [
@@ -55,7 +57,11 @@ class AppRoutes {
     ),
     GetPage(
       name: '/home',
-      page: () => const DesignerHomeScrenn(),
+      page: () => const DesignerHomeScreen(),
+    ),
+    GetPage(
+      name: '/CustomerProductDetailScreen',
+      page: () => const CustomerProductDetailScreen(),
     ),
   ];
 }

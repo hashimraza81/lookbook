@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
+class CustomerNotificationScreen extends StatefulWidget {
+  const CustomerNotificationScreen({super.key});
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
+  @override
+  State<CustomerNotificationScreen> createState() => _CustomerNotificationScreenState();
+}
 
+class _CustomerNotificationScreenState extends State<CustomerNotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,8 +22,6 @@ class NotificationScreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 26.h),
           child: Column(
             children: [
-              // const CustomAppBar(),
-              20.ph,
               Center(
                 child: Text(
                   'NOTIFICATIONS',
@@ -75,7 +75,6 @@ class NotificationScreen extends StatelessWidget {
             ],
           ),
         ),
-
       ),
     );
   }

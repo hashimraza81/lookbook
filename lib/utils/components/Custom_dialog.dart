@@ -4,7 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'constant/app_colors.dart';
 import 'constant/app_textstyle.dart';
-void showCustomDialog(BuildContext context) {
+
+void showCustomDialog(BuildContext context, {required String title, required String message}) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -26,7 +27,7 @@ void showCustomDialog(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Sure you want to block?',
+                    title,
                     style: tSStyleBlack18400, // Custom text style
                   ),
                   GestureDetector(
@@ -39,7 +40,7 @@ void showCustomDialog(BuildContext context) {
               ),
               SizedBox(height: 10.h),
               Text(
-                'Are you sure you want to block this?',
+                message,
                 style: tSStyleBlack12400.copyWith(color: AppColors.text1),
               ),
               SizedBox(height: 20.h),

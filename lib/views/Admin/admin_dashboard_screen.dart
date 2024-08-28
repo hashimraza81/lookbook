@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/custom_bottom_navigation_bar.dart';
+import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 import 'package:lookbook/views/Admin/Reports/all_buyer_customer_screen.dart';
 
 import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
@@ -13,8 +13,10 @@ import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/custom_app_bar.dart';
+import 'Conversations/message-chat_screen.dart';
 import 'Customers/all_customers_screen.dart';
 import 'Designers/all_Designers_screen.dart';
+import 'Products/admin_product_screen.dart';
 
 class AdminDashboardScreen extends StatefulWidget {
   const AdminDashboardScreen({super.key});
@@ -79,7 +81,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   CustomCard(
                     logoPath: AppImages.productsLogo,
                     title: 'Products',
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => const AdminProductScreen());
+                    },
                   ),
                   CustomCard(
                     logoPath: AppImages.reportsLogo,
@@ -91,7 +95,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   CustomCard(
                     logoPath: AppImages.conversationsLogo,
                     title: 'Conversations',
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => const MessageChatScreen());
+                    },
                   ),
                 ],
               ),
