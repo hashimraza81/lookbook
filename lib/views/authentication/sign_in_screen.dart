@@ -10,12 +10,12 @@ import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
 import 'package:lookbook/views/authentication/forgot_password_screen.dart';
 
+import '../../Model/user/user_model.dart';
 import '../../utils/components/socialbuttons.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
   final SignInController controller = Get.put(SignInController());
-
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
 
@@ -126,10 +126,11 @@ class SignInScreen extends StatelessWidget {
                       icon: Icons.arrow_forward_outlined,
                       text: 'LOGIN NOW!',
                       ontap: controller.isButtonActive.value
-                          ? () {
-                              Get.toNamed('home');
+                          ? () async {
+                              UserModel? user = await controller.signIn();
+                              if (user != null) {}
                             }
-                          : null, // Disable the button if not active
+                          : null,
                       color: controller.isButtonActive.value
                           ? AppColors.secondary
                           : AppColors.greylight,

@@ -1,8 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:lookbook/utils/validations/validator.dart';
+import '../../Model/user/user_model.dart';
+import '../Firebase/firebase_authentication_services.dart';
+import '../utils/validations/validator.dart';
 
 class SignInController extends GetxController {
+  final FirebaseAuthenticationServices _authService = Get.put(FirebaseAuthenticationServices());
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final isButtonActive = false.obs;
@@ -36,6 +39,13 @@ class SignInController extends GetxController {
   void _validateForm() {
     isButtonActive.value =
         _emailErrorText.value.isEmpty && _passwordErrorText.value.isEmpty;
+  }
+
+  Future<UserModel?> signIn() async {
+    return await _authService.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
+    );
   }
 
   @override

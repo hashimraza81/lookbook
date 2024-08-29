@@ -7,11 +7,19 @@ import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 
+class CreateWithController extends GetxController {
+  var selectedButton = ''.obs;
+
+  void updateButtonSelection(String button) {
+    selectedButton.value = button;
+  }
+}
+
 class CreateWithScreen extends StatelessWidget {
   const CreateWithScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(CreateWithController());
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,23 +45,33 @@ class CreateWithScreen extends StatelessWidget {
                   ),
                 ),
                 20.ph,
-                reusedButton(
-                  icon: Icons.arrow_forward_outlined,
-                  text: 'DESIGNER',
-                  ontap: () {
-                    Get.toNamed('signup');
-                  },
-                  color: AppColors.secondary,
+                Obx(
+                  () => reusedButton(
+                    icon: Icons.arrow_forward_outlined,
+                    text: 'DESIGNER',
+                    ontap: () {
+                      controller.updateButtonSelection('designer');
+                      Get.toNamed('signup', arguments: 'DESIGNER');
+                    },
+                    color: controller.selectedButton.value == 'designer'
+                        ? AppColors.secondary
+                        : AppColors.greylight,
+                  ),
                 ),
                 15.ph,
-                reusedButton(
-                  icon: Icons.arrow_forward_outlined,
-                  text: 'CUSTOMER',
-                  ontap: () {
-                    Get.toNamed('signup');
-                  },
-                  color: AppColors.greylight,
-                )
+                Obx(
+                  () => reusedButton(
+                    icon: Icons.arrow_forward_outlined,
+                    text: 'CUSTOMER',
+                    ontap: () {
+                      controller.updateButtonSelection('customer');
+                      Get.toNamed('signup', arguments: 'CUSTOMER');
+                    },
+                    color: controller.selectedButton.value == 'customer'
+                        ? AppColors.secondary
+                        : AppColors.greylight,
+                  ),
+                ),
               ],
             ),
           ),

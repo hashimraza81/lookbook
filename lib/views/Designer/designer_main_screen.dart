@@ -8,6 +8,7 @@ import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/dashboard_custom_app_bar.dart';
 import '../../utils/components/designer_bottom_navigation_bar.dart';
+
 class DesignerMainScreen extends StatefulWidget {
   const DesignerMainScreen({super.key});
 
@@ -16,7 +17,8 @@ class DesignerMainScreen extends StatefulWidget {
 }
 
 class _DesignerMainScreenState extends State<DesignerMainScreen> {
-  final DesignerBottomNavController bottomNavController = Get.put(DesignerBottomNavController());
+  final DesignerBottomNavController bottomNavController =
+      Get.put(DesignerBottomNavController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(

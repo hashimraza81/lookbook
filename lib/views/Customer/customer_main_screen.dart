@@ -17,7 +17,6 @@ class CustomerMainScreen extends StatefulWidget {
 class _CustomerMainScreenState extends State<CustomerMainScreen> {
   final CustomerBottomNavController bottomNavController =
       Get.put(CustomerBottomNavController());
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -46,6 +45,7 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
             Get.to(() => QRScannerScreen());
           },
           backgroundColor: AppColors.secondary,
+          shape: const CircleBorder(),
           child: Icon(Icons.qr_code_scanner, color: Colors.white),
         ),
         bottomNavigationBar: Obx(() {

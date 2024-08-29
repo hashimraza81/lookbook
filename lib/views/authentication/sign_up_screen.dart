@@ -5,17 +5,13 @@ import 'package:lookbook/controllers/sign_up_screen_controller.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
-
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/textfield.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
   final SignUpController controller = Get.put(SignUpController());
-  final FocusNode emailFocusNode = FocusNode();
-  final FocusNode passwordFocusNode = FocusNode();
-  final FocusNode nameFocusNode = FocusNode();
-  final FocusNode confirmFocusNode = FocusNode();
+  final role = Get.arguments as String;
 
   @override
   Widget build(BuildContext context) {
@@ -97,13 +93,15 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   10.ph,
-                  textfield(
-                    text: 'Type Full Name',
-                    toHide: false,
-                    controller: controller.nameController,
-                    focusNode: nameFocusNode,
-                    nextFocusNode: emailFocusNode,
-                    errorText: controller.nameErrorText,
+                  Obx(
+                    () => textfield(
+                      text: 'Type Full Name',
+                      toHide: false,
+                      controller: controller.nameController,
+                      focusNode: FocusNode(),
+                      nextFocusNode: FocusNode(),
+                      errorText: controller.nameErrorText,
+                    ),
                   ),
                   15.ph,
                   Text(
@@ -113,13 +111,15 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   10.ph,
-                  textfield(
-                    text: 'Type Email',
-                    toHide: false,
-                    controller: controller.emailController,
-                    focusNode: emailFocusNode,
-                    nextFocusNode: passwordFocusNode,
-                    errorText: controller.emailErrorText,
+                  Obx(
+                    () => textfield(
+                      text: 'Type Email',
+                      toHide: false,
+                      controller: controller.emailController,
+                      focusNode: FocusNode(),
+                      nextFocusNode: FocusNode(),
+                      errorText: controller.emailErrorText,
+                    ),
                   ),
                   15.ph,
                   Text(
@@ -129,13 +129,15 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   10.ph,
-                  textfield(
-                    text: 'Type Password',
-                    toHide: true,
-                    controller: controller.passwordController,
-                    focusNode: passwordFocusNode,
-                    nextFocusNode: confirmFocusNode,
-                    errorText: controller.passwordErrorText,
+                  Obx(
+                    () => textfield(
+                      text: 'Type Password',
+                      toHide: true,
+                      controller: controller.passwordController,
+                      focusNode: FocusNode(),
+                      nextFocusNode: FocusNode(),
+                      errorText: controller.passwordErrorText,
+                    ),
                   ),
                   15.ph,
                   Text(
@@ -145,12 +147,14 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   10.ph,
-                  textfield(
-                    text: 'Type Confirm Password',
-                    toHide: true,
-                    controller: controller.confirmController,
-                    focusNode: confirmFocusNode,
-                    errorText: controller.confirmErrorText,
+                  Obx(
+                    () => textfield(
+                      text: 'Type Confirm Password',
+                      toHide: true,
+                      controller: controller.confirmController,
+                      focusNode: FocusNode(),
+                      errorText: controller.confirmErrorText,
+                    ),
                   ),
                   40.ph,
                   Obx(
@@ -159,9 +163,9 @@ class SignUpScreen extends StatelessWidget {
                       text: 'SIGNUP NOW!',
                       ontap: controller.isButtonActive.value
                           ? () {
-                              Get.toNamed('signin');
+                              controller.signUp(role);
                             }
-                          : null, // Disable the button if not active
+                          : null,
                       color: controller.isButtonActive.value
                           ? AppColors.secondary
                           : AppColors.greylight,

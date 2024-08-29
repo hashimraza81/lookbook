@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
-import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 
 import 'capitalize_word_input.dart';
+import 'constant/app_textstyle.dart';
 
 class textfield extends StatelessWidget {
   final bool toHide;
@@ -46,9 +47,9 @@ class textfield extends StatelessWidget {
         }
       },
       decoration: InputDecoration(
-        hintText: text, // Hint text
+        hintText: text,
         hintStyle: const TextStyle(
-          color: AppColors.greylight, // Hint text color
+          color: AppColors.greylight,
         ),
         filled: true,
         fillColor: Colors.white,
@@ -59,36 +60,28 @@ class textfield extends StatelessWidget {
             color: AppColors.greylight,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(
-            100.r,
-          ),
+          borderRadius: BorderRadius.circular(100.r),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.greylight,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(
-            100.r,
-          ),
+          borderRadius: BorderRadius.circular(100.r),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.greylight,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(
-            100.r,
-          ),
+          borderRadius: BorderRadius.circular(100.r),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.greylight,
             width: 1.0,
           ),
-          borderRadius: BorderRadius.circular(
-            100.r,
-          ),
+          borderRadius: BorderRadius.circular(100.r),
         ),
         errorText: errorText,
         suffixIcon: optionalIcon != null
