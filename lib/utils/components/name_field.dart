@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 
+import 'capitalize_word_input.dart';
 import 'constant/app_textstyle.dart';
 
-class textfield extends StatelessWidget {
+class NameField extends StatelessWidget {
   final bool toHide;
   final String text;
   final TextEditingController? controller;
@@ -14,7 +15,7 @@ class textfield extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool isNumeric;
   final IconData? optionalIcon;
-  const textfield({
+  const NameField({
     super.key,
     required this.text,
     required this.toHide,
@@ -34,6 +35,9 @@ class textfield extends StatelessWidget {
       controller: controller,
       obscureText: toHide,
       focusNode: focusNode,
+      inputFormatters: [
+        CapitalizeWordsInputFormatter(),
+      ],
       textInputAction:
           nextFocusNode != null ? TextInputAction.next : TextInputAction.done,
       onSubmitted: (_) {

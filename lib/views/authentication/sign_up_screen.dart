@@ -5,7 +5,9 @@ import 'package:lookbook/controllers/sign_up_screen_controller.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
+
 import '../../utils/components/constant/app_textstyle.dart';
+import '../../utils/components/name_field.dart';
 import '../../utils/components/textfield.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -94,7 +96,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   10.ph,
                   Obx(
-                    () => textfield(
+                    () => NameField(
                       text: 'Type Full Name',
                       toHide: false,
                       controller: controller.nameController,
