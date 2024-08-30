@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../Firebase/firebase_authentication_services.dart';
 import '../utils/validations/validator.dart';
+
 
 class ForgotPasswordController extends GetxController {
   final forgotPasswordController = TextEditingController();
   final emailErrorText = ''.obs;
   final isButtonActive = false.obs;
+  final FirebaseAuthenticationServices _authService = Get.put(FirebaseAuthenticationServices());
 
   @override
   void onInit() {
@@ -17,7 +20,7 @@ class ForgotPasswordController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    _resetFields(); // Reset fields when the controller is ready
+    _resetFields();
   }
 
   void _validateEmail() {
@@ -42,12 +45,14 @@ class ForgotPasswordController extends GetxController {
     super.onClose();
   }
 
-  void submit() {
+  void submit() async {
     if (isButtonActive.value) {
-      // Close the bottom sheet
-      Get.back();
-      // Navigate to the sign-in screen
-      Get.toNamed('signin');
+      bool result = await _authService.forgetPassword(forgotPasswordController.text.trim());
+      if (result) {
+        Get.back();
+        Get.toNamed('signin');
+      }
     }
   }
 }
+
