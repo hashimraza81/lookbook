@@ -14,7 +14,6 @@ class ForgotPasswordScreen extends StatelessWidget {
 
   final ForgotPasswordController controller =
       Get.put(ForgotPasswordController());
-
   final FocusNode forgotFocusNode = FocusNode();
 
   @override
@@ -23,12 +22,10 @@ class ForgotPasswordScreen extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: Padding(
         padding: EdgeInsets.symmetric(
-          // horizontal: 5.0.w,
           vertical: 10.0.h,
         ),
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -39,7 +36,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               ),
               5.ph,
               Text(
-                'Enter your email for the verification proccesss, we will send you a email on your email.',
+                'Enter your email for the verification process, we will send you an email.',
                 style: tSStyleBlack16400.copyWith(
                   color: AppColors.text2,
                 ),

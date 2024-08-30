@@ -12,7 +12,7 @@ class UserModel {
       'userId': userId,
       'fullName': fullName,
       'email': email,
-      'Role': role,
+      'role': role,
     };
   }
 
