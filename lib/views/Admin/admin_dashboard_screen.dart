@@ -2,17 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 import 'package:lookbook/views/Admin/Reports/all_buyer_customer_screen.dart';
 
-import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../utils/components/admin_custom_card.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
-import '../../utils/components/custom_app_bar.dart';
 import 'Conversations/message-chat_screen.dart';
 import 'Customers/all_customers_screen.dart';
 import 'Designers/all_Designers_screen.dart';
@@ -50,7 +46,6 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                   SvgPicture.asset(
                     AppImages.line,
                     width: 150.w,
-
                     height: 15.h,
                     color: AppColors.text1,
                   ),

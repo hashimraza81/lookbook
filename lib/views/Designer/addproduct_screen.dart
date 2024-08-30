@@ -8,8 +8,6 @@ import 'package:lookbook/utils/components/reusedbutton.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
-import '../../utils/components/custom_app_bar.dart';
-import '../../utils/components/designer_bottom_navigation_bar.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});
@@ -67,7 +65,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
           ),
         ),
       ),
-
     );
   }
 }

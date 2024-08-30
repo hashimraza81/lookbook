@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:get/get_common/get_reset.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../Model/user/user_model.dart';
 import '../views/Customer/customer_main_screen.dart';
@@ -55,8 +53,9 @@ class FirebaseAuthenticationServices {
 
       if (user != null) {
         DocumentSnapshot doc =
-        await _firestore.collection('users').doc(user.uid).get();
-        UserModel userModel = UserModel.fromMap(doc.data() as Map<String, dynamic>);
+            await _firestore.collection('users').doc(user.uid).get();
+        UserModel userModel =
+            UserModel.fromMap(doc.data() as Map<String, dynamic>);
         if (userModel.role == "CUSTOMER") {
           Get.to(CustomerMainScreen);
         } else if (userModel.role == "DESIGNER") {
@@ -71,7 +70,6 @@ class FirebaseAuthenticationServices {
       return null;
     }
   }
-
 
   Future<void> signOut() async {
     await _auth.signOut();

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
@@ -75,7 +73,6 @@ class NotificationScreen extends StatelessWidget {
             ],
           ),
         ),
-
       ),
     );
   }

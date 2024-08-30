@@ -9,7 +9,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:lookbook/controllers/add_photographer_controller.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
 

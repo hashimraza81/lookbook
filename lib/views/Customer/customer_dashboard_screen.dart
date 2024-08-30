@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
+
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/reusable_widget.dart';
-import 'event_search_screen.dart';
 
 class CustomerDashboardScreen extends StatefulWidget {
   const CustomerDashboardScreen({super.key});
@@ -34,10 +33,10 @@ class _CustomerDashboardScreenState extends State<CustomerDashboardScreen> {
                   height: 43.h,
                   width: 385.w,
                   child: SearchBar(
-                    backgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color(0xFFF8F9FE)),
+                    backgroundColor: WidgetStateColor.resolveWith(
+                        (states) => const Color(0xFFF8F9FE)),
                     leading: Icon(Icons.search,
-                        color: Color(0xFF2F3036), size: 30.sp),
+                        color: const Color(0xFF2F3036), size: 30.sp),
                     hintText: 'Search...',
                     trailing: [
                       Padding(

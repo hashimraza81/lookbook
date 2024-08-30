@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 
-import '../../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
@@ -20,6 +18,7 @@ class AllCustomersScreen extends StatefulWidget {
 }
 
 class _AllCustomersScreenState extends State<AllCustomersScreen> {
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -27,7 +26,7 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CustomAppBar(),
+            const CustomAppBar(),
             20.ph,
             SizedBox(
               height: 72.h,
@@ -54,10 +53,10 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
               height: 43.h,
               width: 385.w,
               child: SearchBar(
-                backgroundColor: MaterialStateColor.resolveWith(
-                    (states) => Color(0xFFF8F9FE)),
-                leading:
-                    Icon(Icons.search, color: Color(0xFF2F3036), size: 30.sp),
+                backgroundColor: WidgetStateColor.resolveWith(
+                    (states) => const Color(0xFFF8F9FE)),
+                leading: Icon(Icons.search,
+                    color: const Color(0xFF2F3036), size: 30.sp),
                 hintText: 'Search...',
               ),
             ),
@@ -67,11 +66,11 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
               height: 78.h,
               child: InkWell(
                 onTap: () {
-                  Get.to(() => const CustomerDetailScreen ());
+                  Get.to(() => const CustomerDetailScreen());
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFFF8F9FE),
+                    color: const Color(0xFFF8F9FE),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Padding(
@@ -118,7 +117,7 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
                         Icon(
                           Icons.arrow_forward_outlined,
                           size: 25.sp,
-                          color: Color(0xFFE47F46),
+                          color: const Color(0xFFE47F46),
                         )
                       ],
                     ),

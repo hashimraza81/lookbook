@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/admin_custom_bottom_navigation_bar.dart';
 
 import '../../../utils/components/Custom_dialog.dart';
 import '../../../utils/components/build_links.dart';
@@ -25,7 +24,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
       child: Scaffold(
         body: Column(
           children: [
-            CustomAppBar(),
+            const CustomAppBar(),
             20.ph,
             SizedBox(
               height: 72.h,
@@ -112,7 +111,11 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                             title: 'Sure you want to block?',
                             message: 'Are you sure you want to block this?');
                       },
-                      child: Row(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.red,
+                        foregroundColor: AppColors.white,
+                      ),
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text('Block'),
@@ -122,10 +125,6 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                             size: 18,
                           ),
                         ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.red,
-                        foregroundColor: AppColors.white,
                       ),
                     ),
                   ),

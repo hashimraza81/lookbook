@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/custom_app_bar.dart';
+
 class CustomerMessageChatScreen extends StatefulWidget {
   const CustomerMessageChatScreen({super.key});
 
   @override
-  State<CustomerMessageChatScreen> createState() => _CustomerMessageChatScreenState();
+  State<CustomerMessageChatScreen> createState() =>
+      _CustomerMessageChatScreenState();
 }
 
 class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
@@ -23,7 +23,7 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(),
+            const CustomAppBar(),
             SizedBox(height: 20.h),
             SizedBox(
               height: 72.h,
@@ -103,7 +103,7 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment:
-        isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+            isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           if (!isSender)
             CircleAvatar(
@@ -111,7 +111,7 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
               backgroundColor: AppColors.secondary,
               child: CircleAvatar(
                 radius: 20.r,
-                backgroundImage: AssetImage(AppImages.noti),
+                backgroundImage: const AssetImage(AppImages.noti),
               ),
             ),
           SizedBox(width: 10.w),
@@ -124,9 +124,9 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
                 topLeft: Radius.circular(15.r),
                 topRight: Radius.circular(15.r),
                 bottomLeft:
-                isSender ? Radius.circular(15.r) : Radius.circular(0),
+                    isSender ? Radius.circular(15.r) : const Radius.circular(0),
                 bottomRight:
-                isSender ? Radius.circular(0) : Radius.circular(15.r),
+                    isSender ? const Radius.circular(0) : Radius.circular(15.r),
               ),
             ),
             child: Column(
@@ -156,7 +156,7 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
               backgroundColor: AppColors.secondary,
               child: CircleAvatar(
                 radius: 20.r,
-                backgroundImage: AssetImage(AppImages.photographer),
+                backgroundImage: const AssetImage(AppImages.photographer),
               ),
             ),
         ],

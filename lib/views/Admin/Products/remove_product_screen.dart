@@ -1,9 +1,7 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 
 import '../../../controllers/product_detail_controller.dart';
@@ -13,7 +11,6 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
-import '../../../utils/components/reusedbutton.dart';
 import '../../Designer/designer_profile_screen.dart';
 import '../../Designer/photographer_profile_screen.dart';
 
@@ -179,22 +176,22 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                           title: 'Sure you want to delete?',
                           message: 'Are you sure you want to delete this?');
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.red,
+                      foregroundColor: AppColors.white,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('REMOVE',
                             style: tSStyleBlack14400.copyWith(
                                 color: AppColors.white)),
-                        Icon(
+                        const Icon(
                           Icons.delete,
                           color: AppColors.white,
                           size: 18,
                         ),
                       ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.red,
-                      foregroundColor: AppColors.white,
                     ),
                   ),
                 ),

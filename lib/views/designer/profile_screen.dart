@@ -6,8 +6,6 @@ import 'package:lookbook/controllers/designer_profile_screen_controller.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_images.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
-import 'package:lookbook/utils/components/custom_app_bar.dart';
-import 'package:lookbook/utils/components/designer_bottom_navigation_bar.dart';
 import 'package:lookbook/utils/components/reusedbutton.dart';
 import 'package:lookbook/utils/components/textfield.dart';
 

@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-import 'package:lookbook/utils/components/admin_custom_bottom_navigation_bar.dart';
 
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
-import '../../utils/components/custom_app_bar.dart';
 
 class AdminNotificationScreen extends StatefulWidget {
   const AdminNotificationScreen({super.key});

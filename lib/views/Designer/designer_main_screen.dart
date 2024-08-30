@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
-import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/dashboard_custom_app_bar.dart';
 import '../../utils/components/designer_bottom_navigation_bar.dart';
@@ -26,7 +23,7 @@ class _DesignerMainScreenState extends State<DesignerMainScreen> {
         backgroundColor: AppColors.white,
         body: Column(
           children: [
-            DashboardCustomAppBar(),
+            const DashboardCustomAppBar(),
             Expanded(
               child: PageView(
                 controller: bottomNavController.pageController,

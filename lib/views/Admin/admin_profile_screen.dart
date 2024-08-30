@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 
 import '../../controllers/designer_profile_screen_controller.dart';
-import '../../utils/components/admin_custom_bottom_navigation_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
-import '../../utils/components/custom_app_bar.dart';
 import '../../utils/components/reusedbutton.dart';
 import '../../utils/components/textfield.dart';
 
@@ -147,9 +144,7 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
             ),
           ),
         ),
-
       ),
     );
-
   }
 }

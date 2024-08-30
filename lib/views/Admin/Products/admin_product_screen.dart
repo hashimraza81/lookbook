@@ -7,7 +7,6 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
-import '../../../utils/components/reusable_widget.dart';
 
 class AdminProductScreen extends StatefulWidget {
   const AdminProductScreen({super.key});
@@ -28,16 +27,16 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                CustomAppBar(),
+                const CustomAppBar(),
                 10.ph,
                 SizedBox(
                   height: 43.h,
                   width: 385.w,
                   child: SearchBar(
-                    backgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color(0xFFF8F9FE)),
+                    backgroundColor: WidgetStateColor.resolveWith(
+                        (states) => const Color(0xFFF8F9FE)),
                     leading: Icon(Icons.search,
-                        color: Color(0xFF2F3036), size: 30.sp),
+                        color: const Color(0xFF2F3036), size: 30.sp),
                     hintText: 'Search...',
                   ),
                 ),
