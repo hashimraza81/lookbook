@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
+import '../../utils/components/Designer_dashboard_custom_app_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
-import '../../utils/components/dashboard_custom_app_bar.dart';
+import '../../utils/components/Admin_dashboard_custom_app_bar.dart';
 import '../../utils/components/designer_bottom_navigation_bar.dart';
 
 class DesignerMainScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _DesignerMainScreenState extends State<DesignerMainScreen> {
         backgroundColor: AppColors.white,
         body: Column(
           children: [
-            const DashboardCustomAppBar(),
+           const  DesignerDashboardCustomAppBar(),
             Expanded(
               child: PageView(
                 controller: bottomNavController.pageController,

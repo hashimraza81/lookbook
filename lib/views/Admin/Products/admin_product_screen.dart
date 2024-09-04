@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 
 import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+import '../../../utils/components/reusable_widget.dart';
 
 class AdminProductScreen extends StatefulWidget {
   const AdminProductScreen({super.key});
@@ -61,85 +64,43 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                     ],
                   ),
                 ),
-                // Padding(
-                //     padding:
-                //         EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-                //     child: Column(
-                //       crossAxisAlignment: CrossAxisAlignment.center,
-                //       children: [
-                //         Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: const [
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //           ],
-                //         ),
-                //         10.ph,
-                //         Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: const [
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //           ],
-                //         ),
-                //         10.ph,
-                //         Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: const [
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //           ],
-                //         ),
-                //         10.ph,
-                //         Row(
-                //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //           children: const [
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //             ProductCard(
-                //               imagePath: AppImages.photographer,
-                //               title: '21WN Reversible Ring',
-                //               subtitle: 'Cardigan',
-                //               price: '\$120',
-                //             ),
-                //           ],
-                //         ),
-                //       ],
-                //     ))
+                Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ProductCard(
+                              imagePath: AppImages.photographer,
+                              title: '21WN Reversible Ring',
+                              subtitle: 'Cardigan',
+                              price: '\$120',
+                              onTap: () {
+                                Get.toNamed('RemoveProductScreen', arguments: {
+                                  'title': '21WN Reversible Ring',
+                                  'price': '\$120',
+                                });
+                              },
+                            ),
+                            ProductCard(
+                              imagePath: AppImages.photographer,
+                              title: '21WN Reversible Ring',
+                              subtitle: 'Cardigan',
+                              price: '\$120',
+                              onTap: () {
+                                Get.toNamed('RemoveProductScreen', arguments: {
+                                  'title': '21WN Reversible Ring',
+                                  'price': '\$120',
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ))
               ],
             ),
           ),

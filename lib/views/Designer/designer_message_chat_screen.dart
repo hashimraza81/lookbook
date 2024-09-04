@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import '../../../utils/components/constant/app_colors.dart';
-import '../../../utils/components/constant/app_images.dart';
-import '../../../utils/components/constant/app_textstyle.dart';
-import '../../../utils/components/custom_app_bar.dart';
+import '../../utils/components/constant/app_colors.dart';
+import '../../utils/components/constant/app_images.dart';
+import '../../utils/components/constant/app_textstyle.dart';
 
-class MessageChatScreen extends StatefulWidget {
-  const MessageChatScreen({super.key});
+class DesignerMessageChatScreen extends StatefulWidget {
+  const DesignerMessageChatScreen({super.key});
 
   @override
-  State<MessageChatScreen> createState() => _MessageChatScreenState();
+  State<DesignerMessageChatScreen> createState() =>
+      _CustomerMessageChatScreenState();
 }
 
-class _MessageChatScreenState extends State<MessageChatScreen> {
+class _CustomerMessageChatScreenState extends State<DesignerMessageChatScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +21,6 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(),
             SizedBox(height: 20.h),
             SizedBox(
               height: 72.h,
@@ -40,7 +37,7 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'CONVERSATIONS',
+                              'MESSAGES',
                               style: tSStyleBlack18400,
                             ),
                             SvgPicture.asset(
@@ -103,7 +100,7 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment:
-            isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+        isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           if (!isSender)
             CircleAvatar(
@@ -111,7 +108,7 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
               backgroundColor: AppColors.secondary,
               child: CircleAvatar(
                 radius: 20.r,
-                backgroundImage: AssetImage(AppImages.noti),
+                backgroundImage: const AssetImage(AppImages.noti),
               ),
             ),
           SizedBox(width: 10.w),
@@ -124,9 +121,9 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
                 topLeft: Radius.circular(15.r),
                 topRight: Radius.circular(15.r),
                 bottomLeft:
-                    isSender ? Radius.circular(15.r) : Radius.circular(0),
+                isSender ? Radius.circular(15.r) : const Radius.circular(0),
                 bottomRight:
-                    isSender ? Radius.circular(0) : Radius.circular(15.r),
+                isSender ? const Radius.circular(0) : Radius.circular(15.r),
               ),
             ),
             child: Column(
@@ -156,7 +153,7 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
               backgroundColor: AppColors.secondary,
               child: CircleAvatar(
                 radius: 20.r,
-                backgroundImage: AssetImage(AppImages.photographer),
+                backgroundImage: const AssetImage(AppImages.photographer),
               ),
             ),
         ],

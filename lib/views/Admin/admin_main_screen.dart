@@ -4,7 +4,7 @@ import 'package:lookbook/utils/components/admin_custom_bottom_navigation_bar.dar
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 
 import '../../controllers/bottom_nav_controller.dart';
-import '../../utils/components/dashboard_custom_app_bar.dart';
+import '../../utils/components/Admin_dashboard_custom_app_bar.dart';
 
 class AdminMainScreen extends StatelessWidget {
   final AdminBottomNavController bottomNavController =
@@ -19,8 +19,8 @@ class AdminMainScreen extends StatelessWidget {
         backgroundColor: AppColors.white,
         body: Column(
           children: [
-            const DashboardCustomAppBar(),
-            Expanded(
+            const AdminDashboardCustomAppBar(),
+            Flexible(
               child: PageView(
                 controller: bottomNavController.pageController,
                 onPageChanged: (index) {

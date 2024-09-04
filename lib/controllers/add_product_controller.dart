@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lookbook/utils/validations/validator.dart';
@@ -24,6 +24,7 @@ class AddProductController extends GetxController {
   final RxString _descriptionErrorText = ''.obs;
   final RxString _priceErrorText = ''.obs;
   final List<File> selectedImages = <File>[].obs;
+  final List<Color> selectedColors = <Color>[].obs;
 
   final FocusNode categoryFocusNode = FocusNode();
   final FocusNode dressFocusNode = FocusNode();
@@ -36,18 +37,13 @@ class AddProductController extends GetxController {
   final FocusNode phoneFocusNode = FocusNode();
   final FocusNode emailFocusNode = FocusNode();
 
-  String? get emailErrorText =>
-      _emailErrorText.value.isEmpty ? null : _emailErrorText.value;
-  String? get phoneErrorText =>
-      _phoneErrorText.value.isEmpty ? null : _phoneErrorText.value;
+  Color pickerColor = Colors.blue;
 
-  String? get categoryErrorText =>
-      _categoryErrorText.value.isEmpty ? null : _categoryErrorText.value;
-
-  String? get descriptionErrorText =>
-      _descriptionErrorText.value.isEmpty ? null : _descriptionErrorText.value;
-  String? get priceErrorText =>
-      _priceErrorText.value.isEmpty ? null : _priceErrorText.value;
+  String? get emailErrorText => _emailErrorText.value.isEmpty ? null : _emailErrorText.value;
+  String? get phoneErrorText => _phoneErrorText.value.isEmpty ? null : _phoneErrorText.value;
+  String? get categoryErrorText => _categoryErrorText.value.isEmpty ? null : _categoryErrorText.value;
+  String? get descriptionErrorText => _descriptionErrorText.value.isEmpty ? null : _descriptionErrorText.value;
+  String? get priceErrorText => _priceErrorText.value.isEmpty ? null : _priceErrorText.value;
 
   @override
   void onInit() {
@@ -88,12 +84,11 @@ class AddProductController extends GetxController {
 
   Future<void> pickImage() async {
     if (selectedImages.length < 5) {
-      // Limiting to 5 images
       final picker = ImagePicker();
       final pickedFile = await picker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
         selectedImages.add(File(pickedFile.path));
-        _validateForm(); // Revalidate the form when an image is added
+        _validateForm();
       }
     } else {
       Get.snackbar('Limit Reached', 'You can only upload 5 images.');
@@ -102,12 +97,45 @@ class AddProductController extends GetxController {
 
   void removeImage(int index) {
     selectedImages.removeAt(index);
-    _validateForm(); // Revalidate the form when an image is removed
+    _validateForm();
+  }
+
+  void addColor(Color color) {
+    selectedColors.add(color);
+  }
+
+  void removeColor(int index) {
+    selectedColors.removeAt(index);
+  }
+
+  void pickColor(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Pick a color'),
+        content: SingleChildScrollView(
+          child: ColorPicker(
+            pickerColor: pickerColor,
+            onColorChanged: (Color color) {
+              pickerColor = color;
+            },
+          ),
+        ),
+        actions: [
+          TextButton(
+            child: const Text('Select'),
+            onPressed: () {
+              addColor(pickerColor);
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   void onClose() {
-    // Dispose the controllers when the controller is removed from memory
     categoryController.dispose();
     categoryFocusNode.dispose();
     dressController.dispose();

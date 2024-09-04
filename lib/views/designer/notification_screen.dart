@@ -7,8 +7,8 @@ import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 
-class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
+class DesignerNotificationScreen extends StatelessWidget {
+  const DesignerNotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

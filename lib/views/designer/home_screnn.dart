@@ -23,13 +23,13 @@ class DesignerHomeScreen extends StatelessWidget {
                 Center(
                   child: Text(
                     'DASHBOARD',
-                    style: tSStyleBlack18400,
+                    style: tSStyleBlack20400,
                   ),
                 ),
                 Center(
                   child: SvgPicture.asset(
                     AppImages.line,
-                    width: 150.w,
+                    width: 100.w,
                     height: 15.h,
                     color: AppColors.text1,
                   ),

@@ -35,11 +35,11 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                 children: [
                   Text(
                     'JHONE LANE',
-                    style: tSStyleBlack18400,
+                    style: tSStyleBlack20400,
                   ),
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 124.w,
+                    width: 100.w,
                     height: 20.h,
                     color: AppColors.text1,
                   ),

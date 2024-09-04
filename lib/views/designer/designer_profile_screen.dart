@@ -51,7 +51,7 @@ class DesignerProfileScreen extends StatelessWidget {
                 child: Image.asset(
                   AppImages.profile,
                   width: MediaQuery.of(context).size.width,
-                  height: 250.h,
+                  height: 200.h,
                   fit: BoxFit.cover,
                 ),
               ),

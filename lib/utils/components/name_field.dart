@@ -26,7 +26,8 @@ class NameField extends StatelessWidget {
     this.keyboardType,
     this.isNumeric = false,
     this.optionalIcon,
-  });
+  }
+  );
 
   @override
   Widget build(BuildContext context) {

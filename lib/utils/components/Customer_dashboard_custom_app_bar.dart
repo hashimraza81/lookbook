@@ -8,8 +8,8 @@ import 'constant/app_colors.dart';
 import 'constant/app_images.dart';
 import 'constant/app_textstyle.dart';
 
-class DashboardCustomAppBar extends StatelessWidget {
-  const DashboardCustomAppBar({super.key});
+class CustomerDashboardCustomAppBar extends StatelessWidget {
+  const CustomerDashboardCustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,12 @@ class DashboardCustomAppBar extends StatelessWidget {
         ),
         child: Column(
           children: [
-            9.ph,
+            20.ph,
             Row(
               children: [
                 IconButton(
                   onPressed: () {
-                    Get.toNamed('menu');
+                    Get.toNamed('CustomerCustomMenu');
                   },
                   icon: SvgPicture.asset(
                     AppImages.menu,

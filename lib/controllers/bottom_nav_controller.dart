@@ -11,6 +11,7 @@ import '../views/Customer/Customer_Profile_Screen.dart';
 import '../views/Customer/customer_Notification_Screen.dart';
 import '../views/Customer/customer_all_conversation_screen.dart';
 import '../views/Customer/customer_dashboard_screen.dart';
+import '../views/Designer/designer_message_chat_screen.dart';
 import '../views/Designer/notification_screen.dart';
 import '../views/Designer/profile_screen.dart';
 
@@ -20,9 +21,9 @@ class DesignerBottomNavController extends GetxController {
 
   final List<Widget> screens = [
     const DesignerHomeScreen(),
-    const AddProductScreen(),
-    const NotificationScreen(),
-    ProfileScreen(),
+    const DesignerMessageChatScreen(),
+    const DesignerNotificationScreen(),
+    ProfileScreen()
   ];
 
   void changeIndex(int index) {
