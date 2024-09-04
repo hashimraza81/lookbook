@@ -138,7 +138,7 @@ class FirebaseAuthenticationServices {
         message: "Password reset email sent. Please check your email.",
       );
       return true;
-    } on FirebaseAuthException catch (e) {
+    } on FirebaseAuthException {
       Get.back();
       CustomSnackBars.instance.showFailureSnackbar(
         title: 'Error!',
