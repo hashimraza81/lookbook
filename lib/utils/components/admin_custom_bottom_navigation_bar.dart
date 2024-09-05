@@ -24,6 +24,7 @@ class AdminCustomBottomNavigationBar extends StatelessWidget {
         color: AppColors.white,
       ),
       child: BottomNavigationBar(
+        backgroundColor: AppColors.white,
         currentIndex: selectedIndex,
         onTap: onTap,
         type: BottomNavigationBarType.fixed,

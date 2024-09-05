@@ -105,7 +105,7 @@ class _AdminAllConversationScreenState
                                 ),
                                 Text(
                                   'Stand up for what you believe in',
-                                  style: iStyleBlack15400.copyWith(
+                                  style: iStyleBlack13700.copyWith(
                                     color: AppColors.text2,
                                   ),
                                 ),

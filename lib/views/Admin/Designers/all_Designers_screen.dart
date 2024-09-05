@@ -41,8 +41,6 @@ class _AllUserScreenState extends State<AllUserScreen> {
                   ),
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 124.w,
-                    height: 20.h,
                     color: AppColors.text1,
                   ),
                 ],
@@ -99,7 +97,7 @@ class _AllUserScreenState extends State<AllUserScreen> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Jhone  Lane (Designer)',
+                                  'Jhone Lane (Designer)',
                                   style: iStyleBlack13700.copyWith(
                                     color: AppColors.text3,
                                   ),
@@ -108,6 +106,7 @@ class _AllUserScreenState extends State<AllUserScreen> {
                                   '+49 40 60774609',
                                   style: iStyleBlack15400.copyWith(
                                     color: AppColors.text2,
+                                    decoration: TextDecoration.underline,
                                   ),
                                 ),
                               ],

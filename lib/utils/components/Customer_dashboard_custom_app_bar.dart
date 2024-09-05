@@ -21,7 +21,7 @@ class CustomerDashboardCustomAppBar extends StatelessWidget {
         ),
         child: Column(
           children: [
-            20.ph,
+            10.ph,
             Row(
               children: [
                 IconButton(

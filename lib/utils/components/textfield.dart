@@ -49,7 +49,7 @@ class textfield extends StatelessWidget {
         filled: true,
         fillColor: Colors.white,
         contentPadding:
-            const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+            const EdgeInsets.symmetric(vertical: 15.0, horizontal: 16.0),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: AppColors.greylight,

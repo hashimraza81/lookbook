@@ -19,7 +19,7 @@ class DesignerDashboardCustomAppBar extends StatelessWidget {
         decoration: const BoxDecoration(),
         child: Column(
           children: [
-            20.ph,
+            10.ph,
             Row(
               children: [
                 IconButton(

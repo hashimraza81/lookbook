@@ -26,7 +26,6 @@ class reusedButton extends StatelessWidget {
         shadowColor: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100.r),
-          side: const BorderSide(color: AppColors.white, width: 1.0),
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 24,

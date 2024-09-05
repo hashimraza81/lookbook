@@ -57,8 +57,6 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                       ),
                       SvgPicture.asset(
                         AppImages.line,
-                        width: 150.w,
-                        height: 20.h,
                         color: AppColors.text1,
                       ),
                     ],

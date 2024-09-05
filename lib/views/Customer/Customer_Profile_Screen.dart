@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
+import 'package:shimmer/shimmer.dart';
 
+import '../../controllers/All_profile_screen_controller.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
@@ -17,6 +21,9 @@ class CustomerProfileScreen extends StatefulWidget {
 }
 
 class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
+  final AllProfileScreenController controller =
+      Get.put(AllProfileScreenController());
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,16 +57,11 @@ class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
                       Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 10.0.w,
-                          // vertical: 15.0.h,
                         ),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: AppColors.secondary.withOpacity(
-                              0.4,
-                            ),
-                            borderRadius: BorderRadius.circular(
-                              40.0.r,
-                            ),
+                            color: AppColors.secondary.withOpacity(0.4),
+                            borderRadius: BorderRadius.circular(40.0.r),
                           ),
                           height: 500.0.h,
                           child: Padding(
@@ -70,62 +72,104 @@ class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
                             ),
                             child: Column(
                               children: [
+                                // Name TextField
                                 textfield(
                                   text: 'Name',
                                   toHide: false,
                                   optionalIcon: Icons.edit,
+                                  controller: controller.nameController,
                                 ),
                                 10.ph,
+
+                                // Email TextField
                                 textfield(
-                                  text: 'willie.jennings@example.com',
+                                  text: 'Email',
                                   toHide: false,
                                   optionalIcon: Icons.edit,
+                                  controller: controller.emailController,
                                 ),
                                 10.ph,
+
+                                // Password TextField
                                 textfield(
                                   text: 'Password',
                                   toHide: true,
                                   optionalIcon: Icons.edit,
+                                  controller: controller.passwordController,
                                 ),
                                 20.ph,
-                                reusedButton(
-                                  text: 'UPDATE',
-                                  ontap: () {},
-                                  color: AppColors.secondary,
-                                  icon: Icons.arrow_forward,
-                                ),
+
+                                // Update Button with Loading Indicator
+                                Obx(() {
+                                  return controller.isUpdating.value
+                                      ? CircularProgressIndicator()
+                                      : reusedButton(
+                                          text: 'UPDATE',
+                                          ontap: () {
+                                            controller.updateUserData();
+                                          },
+                                          color: AppColors.secondary,
+                                          icon: Icons.arrow_forward,
+                                        );
+                                }),
                                 10.ph,
                               ],
                             ),
                           ),
                         ),
                       ),
+
                       Positioned(
                         top: -30.h,
                         left: MediaQuery.of(context).size.width * 0.5 - 60.w,
-                        child: CircleAvatar(
-                          radius: 60.0.r,
-                          backgroundColor: Colors.transparent,
-                          child: ClipOval(
-                            child: Image.asset(
-                              AppImages.noti,
-                              fit: BoxFit.cover,
-                              width: 120.0.w,
-                              height: 120.0.h,
-                            ),
-                          ),
-                        ),
+                        child: Obx(() {
+                          return controller.isLoading.value
+                              ? Shimmer.fromColors(
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
+                                  child: CircleAvatar(
+                                    radius: 60.0.r,
+                                    backgroundColor: Colors.grey,
+                                  ),
+                                )
+                              : CircleAvatar(
+                                  radius: 60.0.r,
+                                  backgroundColor: Colors.transparent,
+                                  backgroundImage: controller.profileImageUrl !=
+                                              null &&
+                                          controller.profileImageUrl!.isNotEmpty
+                                      ? NetworkImage(
+                                          controller.profileImageUrl!)
+                                      : null,
+                                  child: controller.profileImageUrl == null ||
+                                          controller.profileImageUrl!.isEmpty
+                                      ? Text(
+                                          controller.getInitials(
+                                              controller.nameController.text),
+                                          style: TextStyle(
+                                              fontSize: 24.0,
+                                              color: AppColors.white),
+                                        )
+                                      : null,
+                                );
+                        }),
                       ),
+
                       Positioned(
                         top: 60.h,
                         left: MediaQuery.of(context).size.width * 0.5 + 20.w,
                         child: CircleAvatar(
                           radius: 15.0.r,
                           backgroundColor: AppColors.white,
-                          child: Icon(
-                            Icons.edit,
-                            size: 15.0.w,
-                            color: AppColors.secondary,
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.edit,
+                              size: 15.0.w,
+                              color: AppColors.secondary,
+                            ),
+                            onPressed: () {
+                              controller.uploadProfilePicture();
+                            },
                           ),
                         ),
                       ),

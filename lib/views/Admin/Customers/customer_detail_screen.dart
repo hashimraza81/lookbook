@@ -9,6 +9,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+
 class CustomerDetailScreen extends StatefulWidget {
   const CustomerDetailScreen({super.key});
 
@@ -68,7 +69,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
-                          'LISA',
+                          'JHONE',
                           style: tSStyleBlack16400,
                         ),
                         Text(
@@ -77,15 +78,27 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                             color: AppColors.text1,
                           ),
                         ),
+                        Text(
+                          'Phone Number',
+                          style: tSStyleBlack16400,
+                        ),
                         BuildLinks(
                           image: AppImages.phone,
                           ontap: () {},
                           text: '+49 40 60774609',
                         ),
+                        Text(
+                          'Email',
+                          style: tSStyleBlack16400,
+                        ),
                         BuildLinks(
                           image: AppImages.mail,
                           ontap: () {},
                           text: 'info@eternal-vitality.de',
+                        ),
+                        Text(
+                          'Instagram',
+                          style: tSStyleBlack16400,
                         ),
                         BuildLinks(
                           image: AppImages.social,
@@ -95,12 +108,15 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                       ],
                     ),
                   ),
+                  20.ph,
                   SizedBox(
                     height: 42.h,
                     width: 162.w,
                     child: ElevatedButton(
                       onPressed: () {
-                        showCustomDialog(context, title: 'Sure you want to block?', message: 'Are you sure you want to block this?');
+                        showCustomDialog(context,
+                            title: 'Sure you want to block?',
+                            message: 'Are you sure you want to block this?');
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

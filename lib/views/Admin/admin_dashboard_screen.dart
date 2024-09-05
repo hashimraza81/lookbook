@@ -4,12 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/views/Admin/Reports/all_buyer_customer_screen.dart';
-
 import '../../utils/components/admin_custom_card.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
-import 'Conversations/message-chat_screen.dart';
+import 'Conversations/admin_allconversation_screen.dart';
 import 'Customers/all_customers_screen.dart';
 import 'Designers/all_Designers_screen.dart';
 import 'Products/admin_product_screen.dart';
@@ -43,10 +42,9 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     'ADMIN DASHBOARD',
                     style: tSStyleBlack18400,
                   ),
+                  10.ph,
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 150.w,
-                    height: 15.h,
                     color: AppColors.text1,
                   ),
                 ],
@@ -91,7 +89,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                     logoPath: AppImages.conversationsLogo,
                     title: 'Conversations',
                     onPressed: () {
-                      Get.to(() => const MessageChatScreen());
+                      Get.to(() => const AdminAllConversationScreen());
                     },
                   ),
                 ],
@@ -99,7 +97,6 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
             )
           ],
         ),
-        // bottomNavigationBar: AdminCustomBottomNavigationBar(),
       ),
     );
   }

@@ -17,11 +17,11 @@ class AdminDashboardCustomAppBar extends StatelessWidget {
       height: 75.h,
       child: Container(
         decoration: const BoxDecoration(
-          color: AppColors.appbar,
+          color: AppColors.white,
         ),
         child: Column(
           children: [
-            20.ph,
+            10.ph,
             Row(
               children: [
                 IconButton(

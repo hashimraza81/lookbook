@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
                   Get.back();
                 },
                 icon: Icon(
-                  Icons.west,
+                  Icons.arrow_back_ios_new,
                   color: AppColors.text1,
                   size: 20.sp,
                 )),

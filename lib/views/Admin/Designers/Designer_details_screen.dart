@@ -25,7 +25,6 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
         body: Column(
           children: [
             const CustomAppBar(),
-            20.ph,
             SizedBox(
               height: 72.h,
               width: 430.w,
@@ -39,8 +38,6 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                   ),
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 100.w,
-                    height: 20.h,
                     color: AppColors.text1,
                   ),
                 ],
@@ -84,15 +81,27 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                             color: AppColors.text1,
                           ),
                         ),
+                        Text(
+                          'Phone Number',
+                          style: tSStyleBlack16400,
+                        ),
                         BuildLinks(
                           image: AppImages.phone,
                           ontap: () {},
                           text: '+49 40 60774609',
                         ),
+                        Text(
+                          'Email',
+                          style: tSStyleBlack16400,
+                        ),
                         BuildLinks(
                           image: AppImages.mail,
                           ontap: () {},
                           text: 'info@eternal-vitality.de',
+                        ),
+                        Text(
+                          'Instagram',
+                          style: tSStyleBlack16400,
                         ),
                         BuildLinks(
                           image: AppImages.social,
@@ -102,6 +111,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                       ],
                     ),
                   ),
+                  20.ph,
                   SizedBox(
                     height: 42.h,
                     width: 162.w,

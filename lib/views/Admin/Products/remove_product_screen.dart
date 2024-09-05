@@ -173,8 +173,8 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       showCustomDialog(context,
-                          title: 'Sure you want to delete?',
-                          message: 'Are you sure you want to delete this?');
+                          title: 'Sure you want to report?',
+                          message: 'Are you sure you want to remove this?');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.red,

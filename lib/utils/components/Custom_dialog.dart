@@ -17,24 +17,16 @@ void showCustomDialog(BuildContext context,
         child: Container(
           padding: EdgeInsets.all(20.w),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(20.r),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 45.w),
-                    child: Text(
-                      title,
-                      style: tSStyleBlack18400,
-                    ),
-                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).pop();
@@ -43,6 +35,16 @@ void showCustomDialog(BuildContext context,
                         radius: 15.r,
                         backgroundColor: Color(0xFFE5E5E5),
                         child: Icon(Icons.close, color: Colors.grey)),
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    title,
+                    style: tSStyleBlack18400,
                   ),
                 ],
               ),

@@ -41,8 +41,6 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
                   ),
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 124.w,
-                    height: 20.h,
                     color: AppColors.text1,
                   ),
                 ],
@@ -108,6 +106,7 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
                                   '+49 40 60774609',
                                   style: iStyleBlack15400.copyWith(
                                     color: AppColors.text2,
+                                    decoration: TextDecoration.underline,
                                   ),
                                 ),
                               ],

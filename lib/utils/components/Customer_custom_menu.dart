@@ -27,7 +27,7 @@ class CustomerCustomMenu extends StatelessWidget {
         body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 20.0.w,
-            vertical: 20.0.h,
+            vertical: 10.0.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430, 930),
+      designSize: const Size(430, 932),
       splitScreenMode: true,
       builder: (_, child) {
         return GetMaterialApp(
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightThemeMode,
           initialRoute: '/',
           getPages: AppRoutes.routes,
-          home: DesignerMainScreen(),
+          home: WelcomeScreen(),
         );
       },
     );
