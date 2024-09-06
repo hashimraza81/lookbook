@@ -2,12 +2,14 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 
 import '../../controllers/product_detail_controller.dart';
+import '../../utils/components/Custom_dialog.dart';
 import '../../utils/components/build_list.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
@@ -16,6 +18,8 @@ import '../../utils/components/custom_app_bar.dart';
 import '../../utils/components/reusedbutton.dart';
 import '../Designer/designer_profile_screen.dart';
 import '../Designer/photographer_profile_screen.dart';
+import 'Customer_contact_screen.dart';
+import 'customer_report_screen.dart';
 
 class CustomerProductDetailScreen extends StatefulWidget {
   const CustomerProductDetailScreen({super.key});
@@ -29,9 +33,9 @@ class _CustomerProductDetailScreenState
     extends State<CustomerProductDetailScreen> {
   final ProductDetailController controller = Get.put(ProductDetailController());
   final List<String> imageList = [
-    AppImages.splash,
     AppImages.splash1,
-    AppImages.splash2,
+    AppImages.splash1,
+    AppImages.splash1,
   ];
 
   @override
@@ -53,14 +57,25 @@ class _CustomerProductDetailScreenState
                   carouselController: controller.carouselSliderController,
                   itemCount: imageList.length,
                   itemBuilder: (context, index, realIndex) {
-                    return Image.asset(
-                      imageList[index],
-                      fit: BoxFit.cover,
-                      width: double.infinity,
+                    return Stack(
+                      children: [
+                        Image.asset(
+                          imageList[index],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          right: 10,
+                          child: GestureDetector(
+                              onTap: () {},
+                              child: SvgPicture.asset(AppImages.extendIcon)),
+                        ),
+                      ],
                     );
                   },
                   options: CarouselOptions(
-                    height: 530.h,
+                    height: 500.h,
                     viewportFraction: 1.0,
                     autoPlay: false,
                     onPageChanged: (index, reason) {
@@ -172,18 +187,30 @@ class _CustomerProductDetailScreenState
                   style: tSStyleBlack16400,
                 ),
                 30.ph,
-                reusedButton(
-                  text: 'Contact Designer',
-                  ontap: () {},
-                  color: AppColors.secondary,
-                  icon: Icons.east,
+                SizedBox(
+                  height: 58.h,
+                  child: reusedButton(
+                    text: 'Contact Designer',
+                    ontap: () {
+                      Get.to(
+                        () => const CustomerContactScreen(),
+                      );
+                    },
+                    color: AppColors.secondary,
+                    icon: Icons.east,
+                  ),
                 ),
                 10.ph,
                 SizedBox(
                   width: 177.w,
+                  height: 58.h,
                   child: reusedButton(
                     text: 'Report',
-                    ontap: () {},
+                    ontap: () {
+                      Get.to(
+                        () => const CustomerReportScreen(),
+                      );
+                    },
                     color: AppColors.red,
                     icon: Icons.east,
                   ),

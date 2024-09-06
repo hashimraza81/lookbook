@@ -29,12 +29,13 @@ class reusedButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 24,
-          vertical: 18,
+          vertical: 10,
         ),
       ),
       onPressed: ontap,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             text,

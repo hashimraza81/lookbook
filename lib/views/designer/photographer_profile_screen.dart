@@ -83,7 +83,7 @@ class PhotographerProfileScreen extends StatelessWidget {
               BuildLinks(
                 image: AppImages.social,
                 ontap: () {},
-                text: '@Instagram/designer',
+                text: '@Instagram/photographer',
               ),
               20.ph,
             ],

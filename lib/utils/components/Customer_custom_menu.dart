@@ -45,46 +45,7 @@ class CustomerCustomMenu extends StatelessWidget {
               SizedBox(
                 height: 40.0.h,
               ),
-              Menu(
-                text: 'Profile',
-                onTap: () {
-                  Get.toNamed('CustomerProfileScreen');
-                },
-                index: 0,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Messages',
-                onTap: () {
-                  Get.toNamed('CustomerMessageChatScreen');
-                },
-                index: 1,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Notifications',
-                onTap: () {
-                  Get.toNamed('CustomerNotificationScreen');
-                },
-                index: 2,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Scan Products History',
-                onTap: () {
 
-                },
-                index: 2,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
               Text(
                 'About Fashion Concierge',
                 style: oStyleBlack18600.copyWith(
@@ -92,10 +53,17 @@ class CustomerCustomMenu extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10.0.h,
+                height: 12.0.h,
               ),
               Text(
                 'We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products',
+                style: tSStyleBlack16400,
+              ),
+              SizedBox(
+                height: 12.0.h,
+              ),
+              Text(
+                'The User is the primary end-user of the application. This role represents the general audience for whom the apps features and services are designed. ',
                 style: tSStyleBlack16400,
               ),
               const Spacer(),

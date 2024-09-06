@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/views/Admin/Products/photographer_detail_screen.dart';
+
 import '../../../controllers/product_detail_controller.dart';
 import '../../../utils/components/Custom_dialog.dart';
 import '../../../utils/components/build_list.dart';
@@ -31,144 +32,155 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
     AppImages.splash1,
     AppImages.splash1,
   ];
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.0.w,
-            vertical: 15.0.h,
-          ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                const CustomAppBar(),
-                5.ph,
-                CarouselSlider.builder(
-                  carouselController: controller.carouselSliderController,
-                  itemCount: imageList.length,
-                  itemBuilder: (context, index, realIndex) {
-                    return Stack(
-                      children: [
-                        Image.asset(
-                          imageList[index],
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
-                        Positioned(
-                          bottom: 10,
-                          right: 10,
-                          child: GestureDetector(
-                              onTap: () {},
-                              child: SvgPicture.asset(AppImages.extendIcon)),
-                        ),
-                      ],
-                    );
-                  },
-                  options: CarouselOptions(
-                    height: 500.h,
-                    viewportFraction: 1.0,
-                    autoPlay: false,
-                    onPageChanged: (index, reason) {
-                      controller.onPageChanged(index);
-                    },
+        body: Column(
+          children: [
+            // Static CustomAppBar that doesn't scroll
+            const CustomAppBar(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 16.0.w,
                   ),
-                ),
-                10.ph,
-                Obx(
-                  () {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: imageList.asMap().entries.map((entry) {
-                        return GestureDetector(
-                          onTap: () => controller.onDotTap(entry.key),
-                          child: Container(
-                            width: 12.0.w,
-                            height: 12.0.h,
-                            margin: EdgeInsets.symmetric(horizontal: 4.0.w),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.currentIndex.value == entry.key
-                                  ? AppColors.black
-                                  : AppColors.greylight,
-                            ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      5.ph,
+                      CarouselSlider.builder(
+                        carouselController: controller.carouselSliderController,
+                        itemCount: imageList.length,
+                        itemBuilder: (context, index, realIndex) {
+                          return Stack(
+                            children: [
+                              Image.asset(
+                                imageList[index],
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: 400.h,
+                              ),
+                              Positioned(
+                                bottom: 10,
+                                right: 10,
+                                child: GestureDetector(
+                                    onTap: () {},
+                                    child:
+                                        SvgPicture.asset(AppImages.extendIcon)),
+                              ),
+                            ],
+                          );
+                        },
+                        options: CarouselOptions(
+                          height: 400.h,
+                          viewportFraction: 1.0,
+                          autoPlay: false,
+                          onPageChanged: (index, reason) {
+                            controller.onPageChanged(index);
+                          },
+                        ),
+                      ),
+                      10.ph,
+                      Obx(
+                        () {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: imageList.asMap().entries.map((entry) {
+                              return GestureDetector(
+                                onTap: () => controller.onDotTap(entry.key),
+                                child: Container(
+                                  width: 12.0.w,
+                                  height: 12.0.h,
+                                  margin:
+                                      EdgeInsets.symmetric(horizontal: 4.0.w),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: controller.currentIndex.value ==
+                                            entry.key
+                                        ? AppColors.black
+                                        : AppColors.greylight,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          );
+                        },
+                      ),
+                      10.ph,
+                      Text(
+                        'MOHAN',
+                        style: tSStyleBlack16400,
+                      ),
+                      5.ph,
+                      Text(
+                        'Recycle Boucle Knit Cardigan Pink',
+                        style: tSStyleBlack16400.copyWith(
+                          color: AppColors.text1,
+                        ),
+                      ),
+                      10.ph,
+                      BuildList(
+                        image: AppImages.profile,
+                        text: 'DESIGNER NAME (JHONE)',
+                        ontap: () {
+                          Get.to(
+                            () => const DesignerDetailsScreen(),
+                          );
+                        },
+                      ),
+                      10.ph,
+                      BuildList(
+                        image: AppImages.profile,
+                        text: 'PHOTOGRAPHER NAME (LISA)',
+                        ontap: () {
+                          Get.to(
+                            () => const PhotographerDetailScreen(),
+                          );
+                        },
+                      ),
+                      10.ph,
+                      Text(
+                        'Minimum Order Quantity (150)',
+                        style: tSStyleBlack16400,
+                      ),
+                      20.ph,
+                      SizedBox(
+                        height: 58.h,
+                        width: 399.w,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            showCustomDialog(context,
+                                title: 'Sure you want to remove?',
+                                message:
+                                    'Are you sure you want to remove this?');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.red,
+                            foregroundColor: AppColors.white,
                           ),
-                        );
-                      }).toList(),
-                    );
-                  },
-                ),
-                10.ph,
-                Text(
-                  'MOHAN',
-                  style: tSStyleBlack16400,
-                ),
-                5.ph,
-                Text(
-                  'Recycle Boucle Knit Cardigan Pink',
-                  style: tSStyleBlack16400.copyWith(
-                    color: AppColors.text1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('REMOVE',
+                                  style: tSStyleBlack14400.copyWith(
+                                      color: AppColors.white)),
+                              SvgPicture.asset(
+                                AppImages.deleteIcon,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      10.ph,
+                    ],
                   ),
                 ),
-                20.ph,
-                BuildList(
-                  image: AppImages.profile,
-                  text: 'DESIGNER NAME (JHONE)',
-                  ontap: () {
-                    Get.to(
-                      () => const DesignerDetailsScreen(),
-                    );
-                  },
-                ),
-                15.ph,
-                BuildList(
-                  image: AppImages.profile,
-                  text: 'PHOTOGRAPHER NAME (LISA)',
-                  ontap: () {
-                    Get.to(
-                      () => const PhotographerDetailScreen(),
-                    );
-                  },
-                ),
-                20.ph,
-                Text(
-                  'Minimum Order Quantity (150)',
-                  style: tSStyleBlack16400,
-                ),
-                30.ph,
-                SizedBox(
-                  height: 58.h,
-                  width: 399.w,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      showCustomDialog(context,
-                          title: 'Sure you want to remove?',
-                          message: 'Are you sure you want to remove this?');
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.red,
-                      foregroundColor: AppColors.white,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('REMOVE',
-                            style: tSStyleBlack14400.copyWith(
-                                color: AppColors.white)),
-                        SvgPicture.asset(
-                          AppImages.deleteIcon,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                10.ph,
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

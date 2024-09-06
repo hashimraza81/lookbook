@@ -135,28 +135,55 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
                           (states) => Color(0xFFF8F9FE)),
                       leading: Icon(Icons.search,
                           color: Color(0xFF2F3036), size: 30.sp),
-                      hintText: 'Search...',
+                      hintText: 'Event Search',
                     ),
                   ),
                   20.ph,
                   Container(
-                      width: 390.w,
-                      height: 235.h,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFD9D9D9).withOpacity(0.24),
-                        borderRadius: BorderRadius.circular(6.0.r),
-                        border: Border.all(
-                          color: AppColors.divider2,
-                          width: 1.0,
-                        ),
-                      )),
+                    width: 390.w,
+                    height: 235.h,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFD9D9D9).withOpacity(0.24),
+                      borderRadius: BorderRadius.circular(6.0.r),
+                      border: Border.all(
+                        color: AppColors.divider2,
+                        width: 1.0,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          5.ph,
+                          Text('SEARCH RESULTS',
+                              style: oStyleBlack16600.copyWith(
+                                  color: AppColors.secondary)),
+                          10.ph,
+                          Text('Search 1 Event Search',
+                              style: oStyleBlack14300.copyWith(
+                                  color: AppColors.primaryColor)),
+                          10.ph,
+                          Text('Search 2 Event Search',
+                              style: oStyleBlack14300.copyWith(
+                                  color: AppColors.primaryColor)),
+                          10.ph,
+                          Text('Search 2 Event Search',
+                              style: oStyleBlack14300.copyWith(
+                                  color: AppColors.primaryColor)),
+                        ],
+                      ),
+                    ),
+                  ),
                   20.ph,
                   reusedButton(
                     text: 'FIND RESULTS',
                     ontap: () {},
                     color: AppColors.secondary,
                     icon: Icons.east,
-                  )
+                  ),
+                  20.ph
                 ],
               ),
             ],

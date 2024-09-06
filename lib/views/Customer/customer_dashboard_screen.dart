@@ -8,6 +8,7 @@ import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/reusable_widget.dart';
+import 'event_search_screen.dart';
 
 class CustomerDashboardScreen extends StatefulWidget {
   const CustomerDashboardScreen({super.key});
@@ -43,30 +44,30 @@ class _CustomerDashboardScreenState extends State<CustomerDashboardScreen> {
                         padding: EdgeInsets.only(right: 10.w),
                         child: InkWell(
                           onTap: () {
-                            // showModalBottomSheet(
-                            //   context: context,
-                            //   isScrollControlled: true,
-                            //   backgroundColor: Colors.transparent,
-                            //   builder: (BuildContext context) {
-                            //     return DraggableScrollableSheet(
-                            //       expand: false,
-                            //       builder: (_, controller) {
-                            //         return Container(
-                            //           decoration: BoxDecoration(
-                            //             color: Colors.white,
-                            //             borderRadius: BorderRadius.only(
-                            //               topLeft: Radius.circular(30.r),
-                            //               topRight: Radius.circular(30.r),
-                            //             ),
-                            //           ),
-                            //           padding: EdgeInsets.symmetric(
-                            //               horizontal: 0.w, vertical: 0.h),
-                            //           child: EventSearchScreen(),
-                            //         );
-                            //       },
-                            //     );
-                            //   },
-                            // );
+                            showModalBottomSheet(
+                              context: context,
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              builder: (BuildContext context) {
+                                return DraggableScrollableSheet(
+                                  expand: false,
+                                  builder: (_, controller) {
+                                    return Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(30.r),
+                                          topRight: Radius.circular(30.r),
+                                        ),
+                                      ),
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 0.w, vertical: 0.h),
+                                      child: EventSearchScreen(),
+                                    );
+                                  },
+                                );
+                              },
+                            );
                           },
                           child: SvgPicture.asset(
                             AppImages.searchMenu,
@@ -92,8 +93,6 @@ class _CustomerDashboardScreenState extends State<CustomerDashboardScreen> {
                       ),
                       SvgPicture.asset(
                         AppImages.line,
-                        width: 150.w,
-                        height: 20.h,
                         color: AppColors.text1,
                       ),
                     ],

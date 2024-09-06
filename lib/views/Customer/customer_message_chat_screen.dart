@@ -20,77 +20,103 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAppBar(),
-            SizedBox(height: 20.h),
-            SizedBox(
-              height: 72.h,
-              width: 430.w,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.w),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'MESSAGES',
-                              style: tSStyleBlack18400,
-                            ),
-                            SvgPicture.asset(
-                              AppImages.line,
-                              width: 124.w,
-                              height: 20.h,
-                              color: AppColors.text1,
-                            ),
-                          ],
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomAppBar(),
+              SizedBox(height: 20.h),
+              SizedBox(
+                height: 72.h,
+                width: 430.w,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25.w),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                'MESSAGES',
+                                style: tSStyleBlack18400,
+                              ),
+                              SvgPicture.asset(
+                                AppImages.line,
+                                color: AppColors.text1,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 100.w),
+                    child: Text('Brooke Davis',
+                        style: TextStyle(
+                          fontFamily: 'Inter',
+                          color: AppColors.black,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                        )),
+                  ),
+                  CircleAvatar(
+                    radius: 22.r,
+                    backgroundColor: AppColors.secondary,
+                    child: CircleAvatar(
+                      radius: 20.r,
+                      backgroundImage: const AssetImage(AppImages.noti),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20.h),
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  children: [
+                    _buildChatBubble(
+                      text: "Hey Lucas!\nHow's your project going?",
+                      isSender: false,
+                      avatar: 'assets/images/avatar_brooke.png',
+                    ),
+                    _buildChatBubble(
+                      text: "Hi Brooke!",
+                      isSender: true,
+                      avatar: 'assets/images/avatar_lucas.png',
+                    ),
+                    _buildChatBubble(
+                      text: "It's going well. Thanks for asking!",
+                      isSender: true,
+                      avatar: 'assets/images/avatar_lucas.png',
+                    ),
+                    _buildChatBubble(
+                      text: "No worries. Let me know if you need any help 😊",
+                      isSender: false,
+                      avatar: 'assets/images/avatar_brooke.png',
+                    ),
+                    _buildChatBubble(
+                      text: "You're the best!",
+                      isSender: true,
+                      avatar: 'assets/images/avatar_lucas.png',
                     ),
                   ],
                 ),
               ),
-            ),
-            SizedBox(height: 20.h),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                children: [
-                  _buildChatBubble(
-                    text: "Hey Lucas!\nHow's your project going?",
-                    isSender: false,
-                    avatar: 'assets/images/avatar_brooke.png',
-                  ),
-                  _buildChatBubble(
-                    text: "Hi Brooke!",
-                    isSender: true,
-                    avatar: 'assets/images/avatar_lucas.png',
-                  ),
-                  _buildChatBubble(
-                    text: "It's going well. Thanks for asking!",
-                    isSender: true,
-                    avatar: 'assets/images/avatar_lucas.png',
-                  ),
-                  _buildChatBubble(
-                    text: "No worries. Let me know if you need any help 😊",
-                    isSender: false,
-                    avatar: 'assets/images/avatar_brooke.png',
-                  ),
-                  _buildChatBubble(
-                    text: "You're the best!",
-                    isSender: true,
-                    avatar: 'assets/images/avatar_lucas.png',
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

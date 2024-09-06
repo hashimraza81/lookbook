@@ -17,7 +17,7 @@ class CustomerDashboardCustomAppBar extends StatelessWidget {
       height: 75.h,
       child: Container(
         decoration: const BoxDecoration(
-          color: AppColors.appbar,
+          color: AppColors.white,
         ),
         child: Column(
           children: [

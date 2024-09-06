@@ -28,8 +28,8 @@ class BuildList extends StatelessWidget {
             child: Image.asset(
               image,
               fit: BoxFit.cover,
-              width: 60.0,
-              height: 60.0,
+              width: 50.0,
+              height: 50.0,
             ),
           ),
         ),
