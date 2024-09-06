@@ -4,6 +4,7 @@ import 'package:lookbook/views/designer/addproduct_screen.dart';
 import 'package:lookbook/views/designer/home_screnn.dart';
 
 import '../views/Admin/Conversations/admin_allconversation_screen.dart';
+import '../views/Admin/Conversations/admin_allconversation_screen2.dart';
 import '../views/Admin/admin_dashboard_screen.dart';
 import '../views/Admin/admin_notification_screen.dart';
 import '../views/Admin/admin_profile_screen.dart';
@@ -37,7 +38,7 @@ class AdminBottomNavController extends GetxController {
   final PageController pageController = PageController();
   final List<Widget> screens = [
     const AdminDashboardScreen(),
-    const AdminAllConversationScreen(),
+    const AdminAllconversationScreen2(),
     const AdminNotificationScreen(),
     const AdminProfileScreen(),
   ];

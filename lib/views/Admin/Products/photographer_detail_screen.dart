@@ -9,15 +9,14 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
-
-class DesignerDetailsScreen extends StatefulWidget {
-  const DesignerDetailsScreen({super.key});
+class PhotographerDetailScreen extends StatefulWidget {
+  const PhotographerDetailScreen({super.key});
 
   @override
-  State<DesignerDetailsScreen> createState() => _DesignerDetailsScreenState();
+  State<PhotographerDetailScreen> createState() => _PhotographerDetailScreenState();
 }
 
-class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
+class _PhotographerDetailScreenState extends State<PhotographerDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -59,7 +58,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.r),
                       child: Image.asset(
-                        AppImages.splash2,
+                        AppImages.photographer,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -106,7 +105,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                         BuildLinks(
                           image: AppImages.social,
                           ontap: () {},
-                          text: '@Instagram/designer',
+                          text: '@Instagram/photographer',
                         ),
                       ],
                     ),

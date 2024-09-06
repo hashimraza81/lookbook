@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -53,12 +54,99 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
               ),
               10.ph,
               SizedBox(
+                height: 100.h,
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 40.0.r,
+                          backgroundColor: Colors.transparent,
+                          child: ClipOval(
+                            child: Image.asset(
+                              AppImages.noti,
+                              fit: BoxFit.cover,
+                              width: 60.0.w,
+                              height: 60.0.h,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    10.pw,
+                    DottedBorder(
+                      borderType: BorderType.RRect,
+                      radius: Radius.circular(25.r),
+                      dashPattern: [6, 3],
+                      color: Colors.red,
+                      strokeWidth: 1.5,
+                      child: Container(
+                        width: 250.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            25.r,
+                          ),
+                          color: Color(0xFFDADADA),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 4.h),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Brooke',
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                  color: Color(0xFF71727A),
+                                ),
+                              ),
+                              SizedBox(height: 2.h),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'No worries. Let me know if you need any help 😉',
+                                      style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFF6E6E6E),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: Text(
+                                    'View Profile',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Color(0xFFE27240),
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              30.ph,
+              SizedBox(
                 width: 381.w,
                 height: 178.h,
                 child: InkWell(
-                  onTap: () {
-                    // Get.to(() => const MessageReportScreen());
-                  },
+                  onTap: () {},
                   child: Material(
                     elevation: 1,
                     borderRadius: BorderRadius.circular(10.r),
@@ -122,7 +210,7 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                   ),
                 ),
               ),
-              Spacer(),
+              60.ph,
               SizedBox(
                 height: 42.h,
                 width: 162.w,

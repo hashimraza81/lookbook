@@ -15,8 +15,10 @@ class AppColors {
   static const Color text4 = Color(0xFF2C3E50);
   static const Color text5 = Color(0xFFB4DBFF);
   static const Color text6 = Color(0xFF7E7E7E);
+  static const Color text7 = Color(0xFF54595E);
   static const Color counterColor = Color(0xFFF8F9FE);
   static const Color appbar = Color(0xFFE5E3E0);
   static const Color divider = Color(0xFFF2F4F7);
   static const Color divider2 = Color(0xFFEAECF0);
+  static const Color counterColor2 = Color(0xFFEB5757);
 }

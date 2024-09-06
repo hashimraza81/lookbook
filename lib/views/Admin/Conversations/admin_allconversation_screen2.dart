@@ -10,16 +10,16 @@ import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
 import 'message-chat_screen.dart';
 
-class AdminAllConversationScreen extends StatefulWidget {
-  const AdminAllConversationScreen({super.key});
+class AdminAllconversationScreen2 extends StatefulWidget {
+  const AdminAllconversationScreen2({super.key});
 
   @override
-  State<AdminAllConversationScreen> createState() =>
-      _AdminAllConversationScreenState();
+  State<AdminAllconversationScreen2> createState() =>
+      _AdminAllconversationScreen2State();
 }
 
-class _AdminAllConversationScreenState
-    extends State<AdminAllConversationScreen> {
+class _AdminAllconversationScreen2State
+    extends State<AdminAllconversationScreen2> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,7 +28,6 @@ class _AdminAllConversationScreenState
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomAppBar(),
             SizedBox(
               height: 72.h,
               width: 430.w,
@@ -36,7 +35,6 @@ class _AdminAllConversationScreenState
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
                   Text(
                     'Conversations',
                     style: tSStyleBlack18400,

@@ -45,8 +45,6 @@ class _MessageChatScreenState extends State<MessageChatScreen> {
                             ),
                             SvgPicture.asset(
                               AppImages.line,
-                              width: 124.w,
-                              height: 20.h,
                               color: AppColors.text1,
                             ),
                           ],

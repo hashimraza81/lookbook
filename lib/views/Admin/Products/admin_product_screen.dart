@@ -29,6 +29,7 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const CustomAppBar(),
                 10.ph,
@@ -85,6 +86,61 @@ class _AdminProductScreenState extends State<AdminProductScreen> {
                             ),
                             ProductCard(
                               imagePath: AppImages.photographer,
+                              title: '21WN Reversible Ring',
+                              subtitle: 'Cardigan',
+                              price: '\$120',
+                              onTap: () {
+                                Get.toNamed('RemoveProductScreen', arguments: {
+                                  'title': '21WN Reversible Ring',
+                                  'price': '\$120',
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    )),
+                SizedBox(
+                  height: 72.h,
+                  width: 430.w,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'TEAR SHOW',
+                        style: tSStyleBlack18400,
+                      ),
+                      SvgPicture.asset(
+                        AppImages.line,
+                        color: AppColors.text1,
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ProductCard(
+                              imagePath: AppImages.splash,
+                              title: '21WN Reversible Ring',
+                              subtitle: 'Cardigan',
+                              price: '\$120',
+                              onTap: () {
+                                Get.toNamed('RemoveProductScreen', arguments: {
+                                  'title': '21WN Reversible Ring',
+                                  'price': '\$120',
+                                });
+                              },
+                            ),
+                            ProductCard(
+                              imagePath: AppImages.splash1,
                               title: '21WN Reversible Ring',
                               subtitle: 'Cardigan',
                               price: '\$120',

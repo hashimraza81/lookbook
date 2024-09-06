@@ -16,8 +16,10 @@ class AppImages extends AssetImage {
 //Icons Svg
 
   static const String googlelogo = '$_iconPath/GoogleLogo.svg';
+  static const String extendIcon = '$_iconPath/ExtendIcon.svg';
   static const String applelogo = '$_iconPath/AppleLogo.svg';
   static const String menu = '$_iconPath/Menu.svg';
+  static const String deleteIcon = '$_iconPath/DeleteIcon.svg';
   static const String searchMenu = '$_iconPath/SearchMenu.svg';
   static const String line = '$_iconPath/line.svg';
   static const String shopping = '$_iconPath/shopping.svg';

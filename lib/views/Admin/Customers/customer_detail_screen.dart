@@ -39,8 +39,6 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                   ),
                   SvgPicture.asset(
                     AppImages.line,
-                    width: 124.w,
-                    height: 20.h,
                     color: AppColors.text1,
                   ),
                 ],

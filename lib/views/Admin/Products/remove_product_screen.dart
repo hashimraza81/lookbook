@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
-
+import 'package:lookbook/views/Admin/Products/photographer_detail_screen.dart';
 import '../../../controllers/product_detail_controller.dart';
 import '../../../utils/components/Custom_dialog.dart';
 import '../../../utils/components/build_list.dart';
@@ -13,6 +14,7 @@ import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
 import '../../Designer/designer_profile_screen.dart';
 import '../../Designer/photographer_profile_screen.dart';
+import '../Designers/Designer_details_screen.dart';
 
 class RemoveProductScreen extends StatefulWidget {
   const RemoveProductScreen({super.key});
@@ -25,9 +27,9 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
   final ProductDetailController controller = Get.put(ProductDetailController());
 
   final List<String> imageList = [
-    AppImages.splash,
     AppImages.splash1,
-    AppImages.splash2,
+    AppImages.splash1,
+    AppImages.splash1,
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,7 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const CustomAppBar(),
                 5.ph,
@@ -48,14 +51,25 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                   carouselController: controller.carouselSliderController,
                   itemCount: imageList.length,
                   itemBuilder: (context, index, realIndex) {
-                    return Image.asset(
-                      imageList[index],
-                      fit: BoxFit.cover,
-                      width: double.infinity,
+                    return Stack(
+                      children: [
+                        Image.asset(
+                          imageList[index],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          right: 10,
+                          child: GestureDetector(
+                              onTap: () {},
+                              child: SvgPicture.asset(AppImages.extendIcon)),
+                        ),
+                      ],
                     );
                   },
                   options: CarouselOptions(
-                    height: 530.h,
+                    height: 500.h,
                     viewportFraction: 1.0,
                     autoPlay: false,
                     onPageChanged: (index, reason) {
@@ -104,29 +118,8 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                   image: AppImages.profile,
                   text: 'DESIGNER NAME (JHONE)',
                   ontap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      builder: (BuildContext context) {
-                        return DraggableScrollableSheet(
-                          expand: false,
-                          builder: (_, controller) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30.r),
-                                  topRight: Radius.circular(30.r),
-                                ),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 0.w, vertical: 0.h),
-                              child: const DesignerProfileScreen(),
-                            );
-                          },
-                        );
-                      },
+                    Get.to(
+                      () => const DesignerDetailsScreen(),
                     );
                   },
                 ),
@@ -135,29 +128,8 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                   image: AppImages.profile,
                   text: 'PHOTOGRAPHER NAME (LISA)',
                   ontap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      isScrollControlled: true,
-                      backgroundColor: Colors.transparent,
-                      builder: (BuildContext context) {
-                        return DraggableScrollableSheet(
-                          expand: false,
-                          builder: (_, controller) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30.r),
-                                  topRight: Radius.circular(30.r),
-                                ),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 0.w, vertical: 0.h),
-                              child: const PhotographerProfileScreen(),
-                            );
-                          },
-                        );
-                      },
+                    Get.to(
+                      () => const PhotographerDetailScreen(),
                     );
                   },
                 ),
@@ -168,12 +140,12 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                 ),
                 30.ph,
                 SizedBox(
-                  height: 42.h,
+                  height: 58.h,
                   width: 399.w,
                   child: ElevatedButton(
                     onPressed: () {
                       showCustomDialog(context,
-                          title: 'Sure you want to report?',
+                          title: 'Sure you want to remove?',
                           message: 'Are you sure you want to remove this?');
                     },
                     style: ElevatedButton.styleFrom(
@@ -186,11 +158,9 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                         Text('REMOVE',
                             style: tSStyleBlack14400.copyWith(
                                 color: AppColors.white)),
-                        const Icon(
-                          Icons.delete,
-                          color: AppColors.white,
-                          size: 18,
-                        ),
+                        SvgPicture.asset(
+                          AppImages.deleteIcon,
+                        )
                       ],
                     ),
                   ),

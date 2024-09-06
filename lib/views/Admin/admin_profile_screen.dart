@@ -41,8 +41,6 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                 Center(
                   child: SvgPicture.asset(
                     AppImages.line,
-                    width: 50.w,
-                    height: 15.h,
                     color: AppColors.text1,
                   ),
                 ),
@@ -92,18 +90,17 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                                   controller: controller.passwordController,
                                 ),
                                 20.ph,
-
                                 Obx(() {
                                   return controller.isUpdating.value
                                       ? CircularProgressIndicator()
                                       : reusedButton(
-                                    text: 'UPDATE',
-                                    ontap: () {
-                                      controller.updateUserData();
-                                    },
-                                    color: AppColors.secondary,
-                                    icon: Icons.arrow_forward,
-                                  );
+                                          text: 'UPDATE',
+                                          ontap: () {
+                                            controller.updateUserData();
+                                          },
+                                          color: AppColors.secondary,
+                                          icon: Icons.arrow_forward,
+                                        );
                                 }),
                                 10.ph,
                               ],
@@ -112,42 +109,53 @@ class _AdminProfileScreenState extends State<AdminProfileScreen> {
                         ),
                       ),
 
+                      // Profile Image or Initials (with error handling for null image)
                       Positioned(
                         top: -30.h,
                         left: MediaQuery.of(context).size.width * 0.5 - 60.w,
                         child: Obx(() {
                           return controller.isLoading.value
                               ? Shimmer.fromColors(
-                            baseColor: Colors.grey[300]!,
-                            highlightColor: Colors.grey[100]!,
-                            child: CircleAvatar(
-                              radius: 60.0.r,
-                              backgroundColor: Colors.grey,
-                            ),
-                          )
+                                  baseColor: Colors.grey[300]!,
+                                  highlightColor: Colors.grey[100]!,
+                                  child: CircleAvatar(
+                                    radius: 60.0.r,
+                                    backgroundColor: Colors.grey,
+                                  ),
+                                )
                               : CircleAvatar(
-                            radius: 60.0.r,
-                            backgroundColor: Colors.transparent,
-                            backgroundImage: controller.profileImageUrl !=
-                                null &&
-                                controller.profileImageUrl!.isNotEmpty
-                                ? NetworkImage(
-                                controller.profileImageUrl!)
-                                : null,
-                            child: controller.profileImageUrl == null ||
-                                controller.profileImageUrl!.isEmpty
-                                ? Text(
-                              controller.getInitials(
-                                  controller.nameController.text),
-                              style: TextStyle(
-                                  fontSize: 24.0,
-                                  color: AppColors.white),
-                            )
-                                : null,
-                          );
+                                  radius: 60.0.r,
+                                  backgroundColor: AppColors.secondary
+                                      .withOpacity(
+                                          0.5), // Background for initials
+                                  backgroundImage: controller.profileImageUrl !=
+                                              null &&
+                                          controller.profileImageUrl!.isNotEmpty
+                                      ? NetworkImage(
+                                          controller.profileImageUrl!)
+                                      : null,
+                                  child: controller.profileImageUrl == null ||
+                                          controller.profileImageUrl!.isEmpty
+                                      ? Text(
+                                          controller.nameController.text
+                                                  .isNotEmpty
+                                              ? controller.getInitials(
+                                                  controller
+                                                      .nameController.text)
+                                              : 'N/A',
+                                          style: TextStyle(
+                                            fontSize: 24.0.sp,
+                                            color: AppColors.white,
+                                            fontWeight: FontWeight
+                                                .bold, // Make initials bold
+                                          ),
+                                        )
+                                      : null,
+                                );
                         }),
                       ),
 
+                      // Edit button on the image
                       Positioned(
                         top: 60.h,
                         left: MediaQuery.of(context).size.width * 0.5 + 20.w,

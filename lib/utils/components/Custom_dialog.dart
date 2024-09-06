@@ -12,12 +12,12 @@ void showCustomDialog(BuildContext context,
     builder: (BuildContext context) {
       return Dialog(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(6.r),
         ),
         child: Container(
-          padding: EdgeInsets.all(20.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20.r),
+            borderRadius: BorderRadius.circular(6.r),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,18 +44,30 @@ void showCustomDialog(BuildContext context,
                 children: [
                   Text(
                     title,
-                    style: tSStyleBlack18400,
+                    style: TextStyle(
+                      color: AppColors.text7,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Inter',
+
+                    )
                   ),
                 ],
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 6.h),
               Center(
                 child: Text(
                   message,
-                  style: tSStyleBlack12400.copyWith(color: AppColors.text1),
+                  style: TextStyle(
+                    color: AppColors.text7.withOpacity(0.7),
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Inter',
+
+                  )
                 ),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 15.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

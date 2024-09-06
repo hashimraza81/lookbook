@@ -43,37 +43,7 @@ class AdminCustomMenu extends StatelessWidget {
                 style: aStyleBlack18600,
               ),
               SizedBox(
-                height: 40.0.h,
-              ),
-              Menu(
-                text: 'Profile',
-                onTap: () {
-                  Get.toNamed('AdminProfileScreen');
-                },
-                index: 0,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Conversations',
-                onTap: () {
-                  Get.toNamed('AdminAllConversationScreen');
-                },
-                index: 1,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Notifications',
-                onTap: () {
-                  Get.toNamed('AdminNotificationScreen');
-                },
-                index: 2,
-              ),
-              SizedBox(
-                height: 35.0.h,
+                height: 38.0.h,
               ),
               Text(
                 'About Fashion Concierge',
@@ -82,7 +52,14 @@ class AdminCustomMenu extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10.0.h,
+                height: 12.0.h,
+              ),
+              Text(
+                'We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products',
+                style: tSStyleBlack16400,
+              ),
+              SizedBox(
+                height: 12.0.h,
               ),
               Text(
                 'We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products',
