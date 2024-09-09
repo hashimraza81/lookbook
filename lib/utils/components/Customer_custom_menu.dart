@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lookbook/controllers/menu_controller.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 
@@ -45,7 +46,6 @@ class CustomerCustomMenu extends StatelessWidget {
               SizedBox(
                 height: 40.0.h,
               ),
-
               Text(
                 'About Fashion Concierge',
                 style: oStyleBlack18600.copyWith(
@@ -85,7 +85,8 @@ class CustomerCustomMenu extends StatelessWidget {
                   'LOGOUT',
                   style: tSStyleBlack14400.copyWith(color: AppColors.white),
                 ),
-              )
+              ),
+              20.ph,
             ],
           ),
         ),

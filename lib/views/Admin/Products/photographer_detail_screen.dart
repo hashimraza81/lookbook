@@ -9,11 +9,13 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+
 class PhotographerDetailScreen extends StatefulWidget {
   const PhotographerDetailScreen({super.key});
 
   @override
-  State<PhotographerDetailScreen> createState() => _PhotographerDetailScreenState();
+  State<PhotographerDetailScreen> createState() =>
+      _PhotographerDetailScreenState();
 }
 
 class _PhotographerDetailScreenState extends State<PhotographerDetailScreen> {
@@ -68,7 +70,7 @@ class _PhotographerDetailScreenState extends State<PhotographerDetailScreen> {
                     height: 285.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'JHONE',
@@ -80,6 +82,7 @@ class _PhotographerDetailScreenState extends State<PhotographerDetailScreen> {
                             color: AppColors.text1,
                           ),
                         ),
+                        10.ph,
                         Text(
                           'Phone Number',
                           style: tSStyleBlack16400,
@@ -108,33 +111,6 @@ class _PhotographerDetailScreenState extends State<PhotographerDetailScreen> {
                           text: '@Instagram/photographer',
                         ),
                       ],
-                    ),
-                  ),
-                  20.ph,
-                  SizedBox(
-                    height: 42.h,
-                    width: 162.w,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        showCustomDialog(context,
-                            title: 'Sure you want to block?',
-                            message: 'Are you sure you want to block this?');
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.red,
-                        foregroundColor: AppColors.white,
-                      ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('Block'),
-                          Icon(
-                            Icons.east,
-                            color: AppColors.white,
-                            size: 18,
-                          ),
-                        ],
-                      ),
                     ),
                   ),
                 ],

@@ -41,8 +41,8 @@ class _CustomerReportScreenState extends State<CustomerReportScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'REPORTS',
-                        style: tSStyleBlack18400,
+                        'R E P O R T',
+                        style: oStyleBlack18400,
                       ),
                       SvgPicture.asset(
                         AppImages.line,
@@ -93,13 +93,13 @@ class _CustomerReportScreenState extends State<CustomerReportScreen> {
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: Column(
                       children: [
                         TextField(
                           decoration: InputDecoration(
                             hintText: 'Type Reason',
-                            hintStyle: tSStyleBlack14400.copyWith(
+                            hintStyle: tSStyleBlack14600.copyWith(
                               color: AppColors.primaryColor,
                             ),
                             border: InputBorder.none,
@@ -113,9 +113,9 @@ class _CustomerReportScreenState extends State<CustomerReportScreen> {
                 30.ph,
                 SizedBox(
                   width: 177.w,
-                  height: 58.h,
+                  height: 42.h,
                   child: reusedButton(
-                    text: 'Report',
+                    text: 'REPORT',
                     ontap: () {
                       showCustomDialog(context,
                           title: 'Sure you want to report?',

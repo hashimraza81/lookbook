@@ -25,7 +25,6 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
         body: Column(
           children: [
             CustomAppBar(),
-            20.ph,
             SizedBox(
               height: 72.h,
               width: 430.w,
@@ -101,7 +100,7 @@ class _CustomerDetailScreenState extends State<CustomerDetailScreen> {
                         BuildLinks(
                           image: AppImages.social,
                           ontap: () {},
-                          text: '@Instagram/designer',
+                          text: '@Instagram/customer',
                         ),
                       ],
                     ),

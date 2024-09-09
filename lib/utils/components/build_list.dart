@@ -40,35 +40,42 @@ class BuildList extends StatelessWidget {
           children: [
             Text(
               text,
-              style: tSStyleBlack14400,
+              style: tSStyleBlack14500,
             ),
             5.ph,
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secondary,
-                shadowColor: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(80.r),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 10,
-                ),
-              ),
-              onPressed: ontap,
-              child: Row(
-                children: [
-                  Text(
-                    'VIEW',
-                    style: oStyleBlack12600.copyWith(color: AppColors.white),
+            SizedBox(
+              height: 28.h,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.secondary,
+                  shadowColor: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.r),
                   ),
-                  10.pw,
-                  const Icon(
-                    Icons.arrow_forward,
-                    color: AppColors.white,
-                    size: 15,
-                  )
-                ],
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                  ),
+                ),
+                onPressed: ontap,
+                child: SizedBox(
+                  width: 80.w,
+                  height: 20.h,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'VIEW',
+                        style: oStyleBlack12600.copyWith(color: AppColors.white),
+                      ),
+                      const Icon(
+                        Icons.arrow_forward,
+                        color: AppColors.white,
+                        size: 15,
+                      )
+                    ],
+                  ),
+                ),
               ),
             )
           ],

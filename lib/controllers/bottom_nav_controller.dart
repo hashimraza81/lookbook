@@ -12,6 +12,7 @@ import '../views/Customer/Customer_Profile_Screen.dart';
 import '../views/Customer/customer_Notification_Screen.dart';
 import '../views/Customer/customer_all_conversation_screen.dart';
 import '../views/Customer/customer_dashboard_screen.dart';
+import '../views/Designer/Designer_all_conversation_screen.dart';
 import '../views/Designer/designer_message_chat_screen.dart';
 import '../views/Designer/notification_screen.dart';
 import '../views/Designer/profile_screen.dart';
@@ -22,7 +23,7 @@ class DesignerBottomNavController extends GetxController {
 
   final List<Widget> screens = [
     const DesignerHomeScreen(),
-    const DesignerMessageChatScreen(),
+    const DesignerAllConversationScreen(),
     const DesignerNotificationScreen(),
     ProfileScreen()
   ];
@@ -47,20 +48,20 @@ class AdminBottomNavController extends GetxController {
     pageController.jumpToPage(index);
   }
 }
-
 class CustomerBottomNavController extends GetxController {
   var selectedIndex = 0.obs;
   final PageController pageController = PageController();
 
   final List<Widget> screens = [
-    const CustomerDashboardScreen(),
-    const CustomerAllConversationScreen(),
-    const CustomerNotificationScreen(),
-    const CustomerProfileScreen(),
+    const CustomerDashboardScreen(),        // Index 0: Home
+    const CustomerAllConversationScreen(),  // Index 1: Messages
+    const CustomerNotificationScreen(),     // Index 2: Notifications (corrected)
+    const CustomerProfileScreen(),          // Index 3: Profile
   ];
 
   void changeIndex(int index) {
     selectedIndex.value = index;
-    pageController.jumpToPage(index);
+    pageController.jumpToPage(index);  // Make sure the PageView is updated
   }
 }
+

@@ -32,13 +32,13 @@ class CustomAppBar extends StatelessWidget {
               children: [
                 Text(
                   'LOOK',
-                  style: aStyleBlack18600,
+                  style: aStyleBlack20800,
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 60.w),
                   child: Text(
                     'BOOK',
-                    style: aStyleBlack18600,
+                    style: aStyleBlack20800,
                   ),
                 ),
               ],

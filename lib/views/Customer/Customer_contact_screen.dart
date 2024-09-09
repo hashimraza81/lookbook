@@ -12,6 +12,7 @@ import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/custom_app_bar.dart';
+import '../../utils/components/reusable_widget.dart';
 import '../../utils/components/reusedbutton.dart';
 
 class CustomerContactScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25.w),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,12 +58,17 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                           imageList[index],
                           fit: BoxFit.cover,
                           width: double.infinity,
+                          height: 400.h,
                         ),
                         Positioned(
                           bottom: 10,
                           right: 10,
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.to(() => FullScreenImageViewer(
+                                    imagePath: imageList[index],
+                                  ));
+                            },
                             child: SvgPicture.asset(AppImages.extendIcon),
                           ),
                         ),
@@ -70,7 +76,7 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                     );
                   },
                   options: CarouselOptions(
-                    height: 500.h,
+                    height: 400.h,
                     viewportFraction: 1.0,
                     autoPlay: false,
                     onPageChanged: (index, reason) {
@@ -79,29 +85,27 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                   ),
                 ),
                 10.ph,
-                Obx(
-                  () {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: imageList.asMap().entries.map((entry) {
-                        return GestureDetector(
-                          onTap: () => controller.onDotTap(entry.key),
-                          child: Container(
-                            width: 12.0.w,
-                            height: 12.0.h,
-                            margin: EdgeInsets.symmetric(horizontal: 4.0.w),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: controller.currentIndex.value == entry.key
-                                  ? AppColors.black
-                                  : AppColors.greylight,
-                            ),
+                Obx(() {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: imageList.asMap().entries.map((entry) {
+                      return GestureDetector(
+                        onTap: () => controller.onDotTap(entry.key),
+                        child: Container(
+                          width: 8.0.w,
+                          height: 8.0.h,
+                          margin: EdgeInsets.symmetric(horizontal: 4.0.w),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: controller.currentIndex.value == entry.key
+                                ? AppColors.black
+                                : AppColors.greylight,
                           ),
-                        );
-                      }).toList(),
-                    );
-                  },
-                ),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                }),
                 10.ph,
                 Text(
                   'MOHAN',
@@ -159,7 +163,7 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                                 ),
                                 child: CircleAvatar(
                                   backgroundColor: colorOptions[index],
-                                  radius: 15,
+                                  radius: 10,
                                 ),
                               ),
                             );
@@ -190,29 +194,34 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                                 });
                               },
                               child: Container(
+                                alignment: Alignment.center,
+                                width: 30,
+                                height: 30,
                                 margin: EdgeInsets.only(right: 8.0),
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 6.0, horizontal: 12.0),
+                                    vertical: 2.0, horizontal: 6.0),
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     color: selectedSizeIndex == index
                                         ? Colors.black
                                         : Colors.grey,
-                                    width: 2.0,
+                                    width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(
-                                      30), // Only borderRadius here
+                                      30),
                                   color: selectedSizeIndex == index
                                       ? Colors.black
                                       : Colors.transparent,
                                 ),
-                                child: Text(
-                                  sizeOptions[index],
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: selectedSizeIndex == index
-                                        ? Colors.white
-                                        : Colors.black,
+                                child: Center(
+                                  child: Text(
+                                    sizeOptions[index],
+                                    style: TextStyle(
+                                      fontSize: 8.sp,
+                                      color: selectedSizeIndex == index
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -223,11 +232,11 @@ class _CustomerContactScreenState extends State<CustomerContactScreen> {
                     ),
                   ],
                 ),
-                15.ph,
+                40.ph,
                 SizedBox(
                   height: 58.h,
                   child: reusedButton(
-                    text: 'Contact Designer',
+                    text: 'CONTACT',
                     ontap: () {},
                     color: AppColors.secondary,
                     icon: Icons.east,

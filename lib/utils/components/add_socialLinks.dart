@@ -44,19 +44,18 @@ class AddSociallinks extends StatelessWidget {
                 )
               ],
             ),
-            60.ph,
             Text(
               "Add Social Links",
               style: tSStyleBlack16400,
             ),
-            10.ph,
+            15.ph,
             textfield(
               text: 'Title',
               toHide: false,
               controller: controller.titleController,
               focusNode: controller.titleFocusNode,
             ),
-            10.ph,
+            15.ph,
             textfield(
               text: 'Link',
               toHide: false,
@@ -64,11 +63,13 @@ class AddSociallinks extends StatelessWidget {
               focusNode: controller.linkFocusNode,
             ),
             25.ph,
-            reusedButton(
-              text: 'ADD',
-              ontap: () {},
-              color: AppColors.secondary,
-              icon: Icons.add_box_outlined,
+            SizedBox(
+              height: 58.h,
+              child: reusedButton(
+                  text: 'ADD',
+                  ontap: () {},
+                  color: AppColors.secondary,
+                  icon: Icons.add_circle_outline_outlined),
             ),
           ],
         ),

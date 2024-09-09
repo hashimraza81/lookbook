@@ -113,7 +113,7 @@ class AddPhotographerScreen extends StatelessWidget {
                 20.ph,
                 Text(
                   'Photographer Name',
-                  style: tSStyleBlack16400.copyWith(
+                  style: tSStyleBlack16600.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
@@ -128,7 +128,7 @@ class AddPhotographerScreen extends StatelessWidget {
                 15.ph,
                 Text(
                   'Social Links',
-                  style: tSStyleBlack16400.copyWith(
+                  style: tSStyleBlack16600.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
@@ -145,7 +145,7 @@ class AddPhotographerScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Add Social Links',
-                      style: tSStyleBlack14400.copyWith(
+                      style: tSStyleBlack16600.copyWith(
                         color: AppColors.primaryColor,
                       ),
                     ),
@@ -186,7 +186,7 @@ class AddPhotographerScreen extends StatelessWidget {
                 15.ph,
                 Text(
                   'Phone',
-                  style: tSStyleBlack16400.copyWith(
+                  style: tSStyleBlack16600.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
@@ -202,7 +202,7 @@ class AddPhotographerScreen extends StatelessWidget {
                 15.ph,
                 Text(
                   'Email',
-                  style: tSStyleBlack16400.copyWith(
+                  style: tSStyleBlack16600.copyWith(
                     color: AppColors.primaryColor,
                   ),
                 ),
@@ -238,11 +238,14 @@ class AddPhotographerScreen extends StatelessWidget {
                             ),
                           ],
                         )
-                      : reusedButton(
-                          text: 'NEXT',
-                          ontap: () {},
-                          color: AppColors.greylight,
-                          icon: Icons.arrow_forward_outlined,
+                      : SizedBox(
+                          height: 58.h,
+                          child: reusedButton(
+                            text: 'NEXT',
+                            ontap: () {},
+                            color: AppColors.greylight,
+                            icon: Icons.arrow_forward_outlined,
+                          ),
                         );
                 }),
                 10.ph,

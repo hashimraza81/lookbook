@@ -24,15 +24,13 @@ class _CustomerNotificationScreenState extends State<CustomerNotificationScreen>
             children: [
               Center(
                 child: Text(
-                  'NOTIFICATIONS',
-                  style: tSStyleBlack18400,
+                  'N O T I F I C A T I O N S',
+                  style: oStyleBlack18400,
                 ),
               ),
               Center(
                 child: SvgPicture.asset(
                   AppImages.line,
-                  width: 150.w,
-                  height: 15.h,
                   color: AppColors.text1,
                 ),
               ),

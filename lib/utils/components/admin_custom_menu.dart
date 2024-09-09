@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lookbook/controllers/menu_controller.dart';
+import 'package:lookbook/extension/sizebox_extension.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
 import 'package:lookbook/utils/components/constant/app_textstyle.dart';
 
@@ -34,13 +35,13 @@ class AdminCustomMenu extends StatelessWidget {
             children: [
               Text(
                 'LOOK',
-                style: aStyleBlack18600.copyWith(
+                style: aStyleBlack20800.copyWith(
                   color: const Color(0xFF515152),
                 ),
               ),
               Text(
                 '      BOOK',
-                style: aStyleBlack18600,
+                style: aStyleBlack20800,
               ),
               SizedBox(
                 height: 38.0.h,
@@ -84,7 +85,8 @@ class AdminCustomMenu extends StatelessWidget {
                   'LOGOUT',
                   style: tSStyleBlack14400.copyWith(color: AppColors.white),
                 ),
-              )
+              ),
+              20.ph,
             ],
           ),
         ),

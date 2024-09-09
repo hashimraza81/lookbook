@@ -29,10 +29,9 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightThemeMode,
           initialRoute: '/',
           getPages: AppRoutes.routes,
-          home: AdminMainScreen(),
+          home: WelcomeScreen(),
         );
       },
     );
-
   }
 }

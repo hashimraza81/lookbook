@@ -26,8 +26,8 @@ class _AdminNotificationScreenState extends State<AdminNotificationScreen> {
             children: [
               Center(
                 child: Text(
-                  'NOTIFICATIONS',
-                  style: tSStyleBlack18400,
+                  'N O T I F I C A T I O N S',
+                  style: tSStyleBlack18500,
                 ),
               ),
               Center(

@@ -31,28 +31,31 @@ class CustomCard extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                color: Color(0xFF000000).withOpacity(0.01),
-                blurRadius: 68,
-                offset: Offset(0, 2),
+                color: Color(0xFF000000).withOpacity(0.1),
+                blurRadius: 20,
+                offset: Offset(0, 8),
               ),
             ],
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SvgPicture.asset(logoPath),
-              Text(
-                title,
-                style: tSStyleBlack18400,
-              ),
-              IconButton(
-                onPressed: onPressed,
-                icon: Icon(
-                  Icons.arrow_forward_outlined,
-                  color: Color(0xFF9A9998),
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 10.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SvgPicture.asset(logoPath),
+                Text(
+                  title,
+                  style: tSStyleBlack18400,
                 ),
-              ),
-            ],
+                IconButton(
+                  onPressed: onPressed,
+                  icon: Icon(
+                    Icons.arrow_forward_outlined,
+                    color: Color(0xFF9A9998),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

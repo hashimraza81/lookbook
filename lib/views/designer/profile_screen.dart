@@ -17,6 +17,7 @@ class ProfileScreen extends StatelessWidget {
   final AllProfileScreenController controller =
       Get.put(AllProfileScreenController());
 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,22 +29,19 @@ class ProfileScreen extends StatelessWidget {
               children: [
                 Center(
                   child: Text(
-                    'PROFILE',
-                    style: tSStyleBlack18400,
+                    'P R O F I L E',
+                    style: tSStyleBlack18500,
                   ),
                 ),
                 Center(
                   child: SvgPicture.asset(
                     AppImages.line,
-                    width: 50.w,
-                    height: 15.h,
                     color: AppColors.text1,
                   ),
                 ),
-                40.ph,
+                70.ph,
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
                   child: Stack(
                     clipBehavior: Clip.none,
                     children: [
@@ -56,115 +54,125 @@ class ProfileScreen extends StatelessWidget {
                             color: AppColors.secondary.withOpacity(0.4),
                             borderRadius: BorderRadius.circular(40.0.r),
                           ),
-                          height: 500.0.h,
                           child: Padding(
                             padding: EdgeInsets.only(
-                              left: 8.0.w,
-                              right: 8.0.w,
-                              top: 120.0.h,
+                              left: 10.0.w,
+                              right: 10.0.w,
+                              top: 100.0.h,
                             ),
                             child: Column(
                               children: [
-                                // Name TextField
-                                textfield(
-                                  text: 'Name',
+                                CustomTextField(
+                                  text: 'name',
                                   toHide: false,
-                                  optionalIcon: Icons.edit,
+                                  optionalSvgIcon: AppImages.UpdateProfileIcon,
                                   controller: controller.nameController,
                                 ),
-                                10.ph,
-
-                                // Email TextField
-                                textfield(
+                                20.ph,
+                                CustomTextField(
                                   text: 'Email',
                                   toHide: false,
-                                  optionalIcon: Icons.edit,
+                                  optionalSvgIcon: AppImages.UpdateProfileIcon,
                                   controller: controller.emailController,
                                 ),
-                                10.ph,
-
-                                // Password TextField
-                                textfield(
+                                20.ph,
+                                CustomTextField(
                                   text: 'Password',
-                                  toHide: true,
-                                  optionalIcon: Icons.edit,
+                                  toHide: false,
+                                  optionalSvgIcon: AppImages.UpdateProfileIcon,
                                   controller: controller.passwordController,
                                 ),
-                                20.ph,
-
-                                // Update Button with Loading Indicator
+                                30.ph,
                                 Obx(() {
                                   return controller.isUpdating.value
                                       ? CircularProgressIndicator()
-                                      : reusedButton(
-                                          text: 'UPDATE',
-                                          ontap: () {
-                                            controller.updateUserData();
-                                          },
-                                          color: AppColors.secondary,
-                                          icon: Icons.arrow_forward,
-                                        );
+                                      : SizedBox(
+                                    child: reusedButton2(
+                                      text: 'UPDATE',
+                                      ontap: () {
+                                        controller.updateUserData();
+                                      },
+                                      color: AppColors.secondary,
+                                    ),
+                                  );
                                 }),
-                                10.ph,
+                                30.ph,
                               ],
                             ),
                           ),
                         ),
                       ),
 
-                      // Profile Image or Initials with Shimmer Effect
                       Positioned(
-                        top: -30.h,
-                        left: MediaQuery.of(context).size.width * 0.5 - 60.w,
+                        top: -45.h,
+                        left: MediaQuery.of(context).size.width * 0.5 - 70.w,
                         child: Obx(() {
                           return controller.isLoading.value
                               ? Shimmer.fromColors(
-                                  baseColor: Colors.grey[300]!,
-                                  highlightColor: Colors.grey[100]!,
-                                  child: CircleAvatar(
-                                    radius: 60.0.r,
-                                    backgroundColor: Colors.grey,
-                                  ),
-                                )
-                              : CircleAvatar(
-                                  radius: 60.0.r,
-                                  backgroundColor: Colors.transparent,
-                                  backgroundImage: controller.profileImageUrl !=
-                                              null &&
-                                          controller.profileImageUrl!.isNotEmpty
-                                      ? NetworkImage(
-                                          controller.profileImageUrl!)
-                                      : null,
-                                  child: controller.profileImageUrl == null ||
-                                          controller.profileImageUrl!.isEmpty
-                                      ? Text(
-                                          controller.getInitials(
-                                              controller.nameController.text),
-                                          style: TextStyle(
-                                              fontSize: 24.0,
-                                              color: AppColors.white),
-                                        )
-                                      : null,
-                                );
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.grey[100]!,
+                            child: CircleAvatar(
+                              radius: 60.0.r,
+                              backgroundColor: Colors.grey,
+                            ),
+                          )
+                              : Center(
+                            child: CircleAvatar(
+                              radius: 60.0.r,
+                              backgroundColor:
+                              AppColors.secondary.withOpacity(0.5),
+                              backgroundImage:
+                              controller.profileImageUrl != null &&
+                                  controller
+                                      .profileImageUrl!.isNotEmpty
+                                  ? NetworkImage(
+                                  controller.profileImageUrl!)
+                                  : null,
+                              child: controller.profileImageUrl == null ||
+                                  controller.profileImageUrl!.isEmpty
+                                  ? Text(
+                                controller.nameController.text
+                                    .isNotEmpty
+                                    ? controller.getInitials(
+                                    controller
+                                        .nameController.text)
+                                    : 'N/A',
+                                style: TextStyle(
+                                  fontSize: 24.0.sp,
+                                  color: AppColors.white,
+                                  fontWeight: FontWeight
+                                      .bold, // Make initials bold
+                                ),
+                              )
+                                  : null,
+                            ),
+                          );
                         }),
                       ),
 
-                      // Edit Icon for Profile Image
+                      // Edit button on the image
                       Positioned(
-                        top: 60.h,
-                        left: MediaQuery.of(context).size.width * 0.5 + 20.w,
-                        child: CircleAvatar(
-                          radius: 15.0.r,
-                          backgroundColor: AppColors.white,
+                        top: 40.h,
+                        left: MediaQuery.of(context).size.width * 0.5 + 15.w,
+                        child: Container(
+                          height: 30.0.h,
+                          width: 30.0.w,
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(6.0.r),
+                          ),
                           child: IconButton(
-                            icon: Icon(
-                              Icons.edit,
-                              size: 15.0.w,
-                              color: AppColors.secondary,
+                            icon: SvgPicture.asset(
+                                height: 35.0.h,
+                                width: 35.0.w,
+                                AppImages.UpdateProfileIcon,
+                                color: AppColors.profileIcon
                             ),
                             onPressed: () {
                               controller.uploadProfilePicture();
                             },
+
+
                           ),
                         ),
                       ),

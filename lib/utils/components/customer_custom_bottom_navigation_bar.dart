@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lookbook/utils/components/constant/app_colors.dart';
+
+import 'constant/app_images.dart';
 
 class CustomerCustomBottomNavigationBar extends StatelessWidget {
   final int selectedIndex;
@@ -45,18 +48,18 @@ class CustomerCustomBottomNavigationBar extends StatelessWidget {
           children: [
             Expanded(
               child: IconButton(
-                icon: Icon(
-                  Icons.home,
-                  color: selectedIndex == 0 ? Colors.orange : Colors.black,
+                icon: SvgPicture.asset(
+                  selectedIndex == 0 ? AppImages.homeIcon2 : AppImages.homeIcon,
                 ),
                 onPressed: () => onTap(0),
               ),
             ),
             Expanded(
               child: IconButton(
-                icon: Icon(
-                  Icons.message,
-                  color: selectedIndex == 1 ? Colors.orange : Colors.black,
+                icon: SvgPicture.asset(
+                  selectedIndex == 1
+                      ? AppImages.messageIcon2
+                      : AppImages.messageIcon,
                 ),
                 onPressed: () => onTap(1),
               ),
@@ -66,18 +69,20 @@ class CustomerCustomBottomNavigationBar extends StatelessWidget {
             ),
             Expanded(
               child: IconButton(
-                icon: Icon(
-                  Icons.notifications,
-                  color: selectedIndex == 2 ? Colors.orange : Colors.black,
+                icon: SvgPicture.asset(
+                  selectedIndex == 2
+                      ? AppImages.notificationIcon2
+                      : AppImages.notificationIcon,
                 ),
                 onPressed: () => onTap(2),
               ),
             ),
             Expanded(
               child: IconButton(
-                icon: Icon(
-                  Icons.person,
-                  color: selectedIndex == 3 ? Colors.orange : Colors.black,
+                icon: SvgPicture.asset(
+                  selectedIndex == 3
+                      ? AppImages.profileIcon2
+                      : AppImages.profileIcon,
                 ),
                 onPressed: () => onTap(3),
               ),

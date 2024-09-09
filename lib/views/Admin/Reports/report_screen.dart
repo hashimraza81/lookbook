@@ -95,6 +95,8 @@ class _ReportScreenState extends State<ReportScreen> {
                             'View Profile',
                             style: iStyleBlack13700.copyWith(
                               color: Color(0xFFE47F46),
+                              decoration: TextDecoration.underline,
+
                             ),
                           ),
                         ],
@@ -111,6 +113,7 @@ class _ReportScreenState extends State<ReportScreen> {
                           });
                         },
                       ),
+                      10.pw,
                     ],
                   ),
                 ),
@@ -159,6 +162,7 @@ class _ReportScreenState extends State<ReportScreen> {
                                 'View Profile',
                                 style: iStyleBlack13700.copyWith(
                                   color: Color(0xFFE47F46),
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../utils/components/constant/app_colors.dart';
+import 'constant/app_images.dart';
 import 'constant/app_textstyle.dart';
 
 class DesignerBottomNavigationBar extends StatelessWidget {
@@ -23,24 +25,43 @@ class DesignerBottomNavigationBar extends StatelessWidget {
         color: AppColors.white,
       ),
       child: BottomNavigationBar(
+        backgroundColor: AppColors.white,
         currentIndex: selectedIndex,
         onTap: onTap,
         type: BottomNavigationBarType.fixed,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon:  SvgPicture.asset(
+              selectedIndex == 0 ? AppImages.homeIcon2 : AppImages.homeIcon,
+            ),
+
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.message),
+            icon:  SvgPicture.asset(
+              selectedIndex == 1
+                  ? AppImages.messageIcon2
+                  : AppImages.messageIcon,
+            ),
+
             label: 'Message',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon:  SvgPicture.asset(
+              selectedIndex == 2
+                  ? AppImages.notificationIcon2
+                  : AppImages.notificationIcon,
+            ),
+
             label: 'Notification',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon:SvgPicture.asset(
+              selectedIndex == 3
+                  ? AppImages.profileIcon2
+                  : AppImages.profileIcon,
+            ),
+
             label: 'Profile',
           ),
         ],

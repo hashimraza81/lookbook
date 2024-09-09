@@ -9,6 +9,7 @@ class SignInController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final isButtonActive = false.obs;
+  final isLoading = false.obs;
   final RxString _emailErrorText = ''.obs;
   final RxString _passwordErrorText = ''.obs;
 
@@ -42,10 +43,16 @@ class SignInController extends GetxController {
   }
 
   Future<UserModel?> signIn() async {
-    return await _authService.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-    );
+    try {
+      isLoading.value = true; // Start loading
+      UserModel? user = await _authService.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+      return user;
+    } finally {
+      isLoading.value = false; // Stop loading
+    }
   }
 
   @override

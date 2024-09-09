@@ -92,6 +92,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
                       Get.to(() => const AdminAllConversationScreen());
                     },
                   ),
+                  20.ph,
                 ],
               ),
             )

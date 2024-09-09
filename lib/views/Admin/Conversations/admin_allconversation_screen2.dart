@@ -8,6 +8,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+import '../../../utils/components/custom_search_bar.dart';
 import 'message-chat_screen.dart';
 
 class AdminAllconversationScreen2 extends StatefulWidget {
@@ -36,8 +37,8 @@ class _AdminAllconversationScreen2State
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Conversations',
-                    style: tSStyleBlack18400,
+                    'C O N V E R S A T I O N S',
+                    style: tSStyleBlack18500,
                   ),
                   SvgPicture.asset(
                     AppImages.line,
@@ -50,13 +51,7 @@ class _AdminAllconversationScreen2State
             SizedBox(
               height: 43.h,
               width: 385.w,
-              child: SearchBar(
-                backgroundColor: WidgetStateColor.resolveWith(
-                    (states) => const Color(0xFFF8F9FE)),
-                leading: Icon(Icons.search,
-                    color: const Color(0xFF2F3036), size: 30.sp),
-                hintText: 'Search...',
-              ),
+              child: CustomSearchBar(),
             ),
             20.ph,
             SizedBox(

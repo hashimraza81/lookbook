@@ -6,6 +6,7 @@ import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_images.dart';
 import '../../utils/components/constant/app_textstyle.dart';
 import '../../utils/components/custom_app_bar.dart';
+import '../../utils/components/reusable_widget.dart';
 
 class CustomerMessageChatScreen extends StatefulWidget {
   const CustomerMessageChatScreen({super.key});
@@ -122,70 +123,83 @@ class _CustomerMessageChatScreenState extends State<CustomerMessageChatScreen> {
     );
   }
 
-  Widget _buildChatBubble(
-      {required String text, required bool isSender, required String avatar}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment:
-            isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: [
-          if (!isSender)
-            CircleAvatar(
-              radius: 22.r,
-              backgroundColor: AppColors.secondary,
-              child: CircleAvatar(
-                radius: 20.r,
-                backgroundImage: const AssetImage(AppImages.noti),
+  Widget _buildChatBubble({
+    required String text,
+    required bool isSender,
+    required String avatar,
+  }) {
+    return GestureDetector(
+      onLongPressStart: (details) {
+        showCustomPopupMenu(context, details.globalPosition);
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 8.h),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment:
+          isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+          children: [
+            if (!isSender)
+              CircleAvatar(
+                radius: 22.r,
+                backgroundColor: AppColors.secondary,
+                child: CircleAvatar(
+                  radius: 20.r,
+                  backgroundImage: const AssetImage(AppImages.noti),
+                ),
               ),
-            ),
-          SizedBox(width: 10.w),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
-            constraints: BoxConstraints(maxWidth: 250.w),
-            decoration: BoxDecoration(
-              color: isSender ? AppColors.secondary : AppColors.counterColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15.r),
-                topRight: Radius.circular(15.r),
-                bottomLeft:
-                    isSender ? Radius.circular(15.r) : const Radius.circular(0),
-                bottomRight:
-                    isSender ? const Radius.circular(0) : Radius.circular(15.r),
+            SizedBox(width: 10.w),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
+              constraints: BoxConstraints(maxWidth: 250.w),
+              decoration: BoxDecoration(
+                color: isSender ? AppColors.secondary : AppColors.counterColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.r),
+                  topRight: Radius.circular(15.r),
+                  bottomLeft: isSender
+                      ? Radius.circular(15.r)
+                      : const Radius.circular(0),
+                  bottomRight: isSender
+                      ? const Radius.circular(0)
+                      : Radius.circular(15.r),
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: isSender
-                  ? CrossAxisAlignment.start
-                  : CrossAxisAlignment.start,
-              children: [
-                if (isSender)
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (isSender)
+                    Text(
+                      'Lucas',
+                      style: tSStyleBlack12700.copyWith(color: AppColors.text5),
+                    ),
+                  if (!isSender)
+                    Text(
+                      'Brooke',
+                      style: tSStyleBlack12700.copyWith(color: AppColors.text2),
+                    ),
                   Text(
-                    'Lucas',
-                    style: tSStyleBlack12700.copyWith(color: AppColors.text5),
+                    text,
+                    style: isSender
+                        ? tSStyleBlack14400.copyWith(color: AppColors.white)
+                        : tSStyleBlack14400,
                   ),
-                if (!isSender)
-                  Text(
-                    'Brooke',
-                    style: tSStyleBlack12700.copyWith(color: AppColors.text2),
-                  ),
-                Text(text,
-                    style: isSender ? tSStyleBlack14400 : tSStyleBlack14400),
-              ],
-            ),
-          ),
-          SizedBox(width: 10.w),
-          if (isSender)
-            CircleAvatar(
-              radius: 22.r,
-              backgroundColor: AppColors.secondary,
-              child: CircleAvatar(
-                radius: 20.r,
-                backgroundImage: const AssetImage(AppImages.photographer),
+                ],
               ),
             ),
-        ],
+            if (isSender)
+              SizedBox(width: 10.w),
+            if (isSender)
+              CircleAvatar(
+                radius: 22.r,
+                backgroundColor: AppColors.secondary,
+                child: CircleAvatar(
+                  radius: 20.r,
+                  backgroundImage: const AssetImage(AppImages.profile),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
+import 'package:table_calendar/table_calendar.dart';
 import '../../utils/components/constant/app_colors.dart';
 import '../../utils/components/constant/app_textstyle.dart';
+import '../../utils/components/custom_search_bar.dart';
 import '../../utils/components/reusedbutton.dart';
+import 'filter_event_date_screen.dart';
 
 class EventSearchScreen extends StatefulWidget {
   const EventSearchScreen({super.key});
@@ -122,26 +125,20 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
                   ),
                 ),
               ),
-              20.ph,
+              16.ph,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    height: 43.h,
+                    height: 50.h,
                     width: 390.w,
-                    child: SearchBar(
-                      backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => Color(0xFFF8F9FE)),
-                      leading: Icon(Icons.search,
-                          color: Color(0xFF2F3036), size: 30.sp),
-                      hintText: 'Event Search',
-                    ),
+                    child: CustomSearchBar(),
                   ),
                   20.ph,
                   Container(
                     width: 390.w,
-                    height: 235.h,
+                    height: 350.h,
                     decoration: BoxDecoration(
                       color: Color(0xFFD9D9D9).withOpacity(0.24),
                       borderRadius: BorderRadius.circular(6.0.r),
@@ -152,36 +149,85 @@ class _EventSearchScreenState extends State<EventSearchScreen> {
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          5.ph,
-                          Text('SEARCH RESULTS',
-                              style: oStyleBlack16600.copyWith(
-                                  color: AppColors.secondary)),
-                          10.ph,
-                          Text('Search 1 Event Search',
-                              style: oStyleBlack14300.copyWith(
-                                  color: AppColors.primaryColor)),
-                          10.ph,
-                          Text('Search 2 Event Search',
-                              style: oStyleBlack14300.copyWith(
-                                  color: AppColors.primaryColor)),
-                          10.ph,
-                          Text('Search 2 Event Search',
-                              style: oStyleBlack14300.copyWith(
-                                  color: AppColors.primaryColor)),
-                        ],
-                      ),
+                      child: isEventSelected
+                          ? Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                10.ph,
+                                Text('SEARCH RESULTS',
+                                    style: oStyleBlack16600.copyWith(
+                                        color: AppColors.secondary)),
+                                10.ph,
+                                Text('Search 1 Event Search',
+                                    style: oStyleBlack14300.copyWith(
+                                        color: AppColors.primaryColor)),
+                                10.ph,
+                                Text('Search 2 Event Search',
+                                    style: oStyleBlack14300.copyWith(
+                                        color: AppColors.primaryColor)),
+                                10.ph,
+                                Text('Search 3 Event Search',
+                                    style: oStyleBlack14300.copyWith(
+                                        color: AppColors.primaryColor)),
+                              ],
+                            )
+                          : SingleChildScrollView(
+                              child: TableCalendar(
+                              firstDay: DateTime.utc(2020, 10, 16),
+                              lastDay: DateTime.utc(2030, 3, 14),
+                              focusedDay: DateTime.now(),
+                              calendarFormat: CalendarFormat.month,
+                              selectedDayPredicate: (day) {
+                                return isSameDay(DateTime.now(), day);
+                              },
+                              onDaySelected: (selectedDay, focusedDay) {
+                                setState(() {});
+                              },
+                              calendarStyle: CalendarStyle(
+                                selectedDecoration: BoxDecoration(
+                                  color: AppColors.secondary,
+                                  shape: BoxShape.circle,
+                                ),
+                                selectedTextStyle: TextStyle(
+                                  color: Colors.white,
+                                ),
+                                // Styling for today
+                                todayDecoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.3),
+                                  shape: BoxShape.circle,
+                                ),
+                                todayTextStyle: TextStyle(
+                                  color: Colors.black,
+                                ),
+                                defaultTextStyle: iStyleBlack13700,
+                                weekendTextStyle: iStyleBlack13700,
+                                outsideDaysVisible: false,
+                              ),
+                              headerStyle: HeaderStyle(
+                                formatButtonVisible: false,
+                                titleCentered: true,
+                                leftChevronIcon: Icon(Icons.chevron_left,
+                                    color: Colors.grey),
+                                rightChevronIcon: Icon(Icons.chevron_right,
+                                    color: Colors.grey),
+                              ),
+                            )),
                     ),
                   ),
                   20.ph,
-                  reusedButton(
-                    text: 'FIND RESULTS',
-                    ontap: () {},
-                    color: AppColors.secondary,
-                    icon: Icons.east,
+                  SizedBox(
+                    height: 58.h,
+                    child: reusedButton(
+                      text: 'FIND RESULTS',
+                      ontap: () {
+                        Get.to(
+                          () => const FilterEventDateScreen(),
+                        );
+                      },
+                      color: AppColors.secondary,
+                      icon: Icons.east,
+                    ),
                   ),
                   20.ph
                 ],

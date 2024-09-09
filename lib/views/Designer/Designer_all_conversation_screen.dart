@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lookbook/extension/sizebox_extension.dart';
+import 'package:lookbook/utils/components/custom_search_bar.dart';
 
-import '../../../utils/components/constant/app_colors.dart';
-import '../../../utils/components/constant/app_images.dart';
-import '../../../utils/components/constant/app_textstyle.dart';
-import '../../../utils/components/custom_app_bar.dart';
-import '../../../utils/components/custom_search_bar.dart';
-import 'message-chat_screen.dart';
+import '../../utils/components/constant/app_colors.dart';
+import '../../utils/components/constant/app_images.dart';
+import '../../utils/components/constant/app_textstyle.dart';
+import 'designer_message_chat_screen.dart';
 
-class AdminAllConversationScreen extends StatefulWidget {
-  const AdminAllConversationScreen({super.key});
+class DesignerAllConversationScreen extends StatefulWidget {
+  const DesignerAllConversationScreen({super.key});
 
   @override
-  State<AdminAllConversationScreen> createState() =>
-      _AdminAllConversationScreenState();
+  State<DesignerAllConversationScreen> createState() =>
+      _DesignerAllConversationScreenState();
 }
 
-class _AdminAllConversationScreenState
-    extends State<AdminAllConversationScreen> {
+class _DesignerAllConversationScreenState
+    extends State<DesignerAllConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +29,6 @@ class _AdminAllConversationScreenState
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CustomAppBar(),
             SizedBox(
               height: 72.h,
               width: 430.w,
@@ -38,7 +37,7 @@ class _AdminAllConversationScreenState
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Conversations',
+                    'MESSAGES',
                     style: tSStyleBlack18400,
                   ),
                   SvgPicture.asset(
@@ -60,11 +59,11 @@ class _AdminAllConversationScreenState
               height: 78.h,
               child: InkWell(
                 onTap: () {
-                  Get.to(() => const MessageChatScreen());
+                  Get.to(() => const DesignerMessageChatScreen());
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color(0xFFF8F9FE),
+                    color: AppColors.white,
                     borderRadius: BorderRadius.circular(10.r),
                   ),
                   child: Padding(
@@ -93,14 +92,14 @@ class _AdminAllConversationScreenState
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Jhone  Lane & Jone LIsa',
+                                  'Jhone  Lane ',
                                   style: iStyleBlack13700.copyWith(
                                     color: AppColors.text3,
                                   ),
                                 ),
                                 Text(
                                   'Stand up for what you believe in',
-                                  style: iStyleBlack13700.copyWith(
+                                  style: iStyleBlack13500.copyWith(
                                     color: AppColors.text2,
                                   ),
                                 ),
@@ -108,10 +107,15 @@ class _AdminAllConversationScreenState
                             ),
                           ],
                         ),
-                        Icon(
-                          Icons.arrow_forward_outlined,
-                          size: 25.sp,
-                          color: const Color(0xFFE47F46),
+                        CircleAvatar(
+                          radius: 15.0.r,
+                          backgroundColor: AppColors.secondary,
+                          child: Text(
+                            '8',
+                            style: oStyleBlack14300.copyWith(
+                              color: AppColors.white,
+                            ),
+                          ),
                         )
                       ],
                     ),

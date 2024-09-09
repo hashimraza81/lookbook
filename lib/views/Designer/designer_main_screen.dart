@@ -24,7 +24,7 @@ class _DesignerMainScreenState extends State<DesignerMainScreen> {
         backgroundColor: AppColors.white,
         body: Column(
           children: [
-           const  DesignerDashboardCustomAppBar(),
+            const DesignerDashboardCustomAppBar(),
             Expanded(
               child: PageView(
                 controller: bottomNavController.pageController,

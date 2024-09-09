@@ -8,6 +8,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+import '../../../utils/components/custom_search_bar.dart';
 import 'customer_detail_screen.dart';
 
 class AllCustomersScreen extends StatefulWidget {
@@ -36,8 +37,8 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    ' CUSTOMERS',
-                    style: tSStyleBlack18400,
+                    'C U S T O M E R S',
+                    style: tSStyleBlack18500,
                   ),
                   SvgPicture.asset(
                     AppImages.line,
@@ -50,13 +51,7 @@ class _AllCustomersScreenState extends State<AllCustomersScreen> {
             SizedBox(
               height: 43.h,
               width: 385.w,
-              child: SearchBar(
-                backgroundColor: WidgetStateColor.resolveWith(
-                    (states) => const Color(0xFFF8F9FE)),
-                leading: Icon(Icons.search,
-                    color: const Color(0xFF2F3036), size: 30.sp),
-                hintText: 'Search...',
-              ),
+              child: CustomSearchBar(),
             ),
             20.ph,
             SizedBox(

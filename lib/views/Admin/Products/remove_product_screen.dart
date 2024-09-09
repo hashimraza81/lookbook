@@ -13,8 +13,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
-import '../../Designer/designer_profile_screen.dart';
-import '../../Designer/photographer_profile_screen.dart';
+import '../../../utils/components/reusable_widget.dart';
 import '../Designers/Designer_details_screen.dart';
 
 class RemoveProductScreen extends StatefulWidget {
@@ -67,9 +66,13 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                                 bottom: 10,
                                 right: 10,
                                 child: GestureDetector(
-                                    onTap: () {},
-                                    child:
-                                        SvgPicture.asset(AppImages.extendIcon)),
+                                  onTap: () {
+                                    Get.to(() => FullScreenImageViewer(
+                                          imagePath: imageList[index],
+                                        ));
+                                  },
+                                  child: SvgPicture.asset(AppImages.extendIcon),
+                                ),
                               ),
                             ],
                           );
@@ -92,8 +95,8 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                               return GestureDetector(
                                 onTap: () => controller.onDotTap(entry.key),
                                 child: Container(
-                                  width: 12.0.w,
-                                  height: 12.0.h,
+                                  width: 8.0.w,
+                                  height: 8.0.h,
                                   margin:
                                       EdgeInsets.symmetric(horizontal: 4.0.w),
                                   decoration: BoxDecoration(
@@ -121,7 +124,7 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                           color: AppColors.text1,
                         ),
                       ),
-                      10.ph,
+                      15.ph,
                       BuildList(
                         image: AppImages.profile,
                         text: 'DESIGNER NAME (JHONE)',
@@ -131,7 +134,7 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                           );
                         },
                       ),
-                      10.ph,
+                      15.ph,
                       BuildList(
                         image: AppImages.profile,
                         text: 'PHOTOGRAPHER NAME (LISA)',
@@ -141,12 +144,7 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                           );
                         },
                       ),
-                      10.ph,
-                      Text(
-                        'Minimum Order Quantity (150)',
-                        style: tSStyleBlack16400,
-                      ),
-                      20.ph,
+                      25.ph,
                       SizedBox(
                         height: 58.h,
                         width: 399.w,
@@ -174,7 +172,6 @@ class _RemoveProductScreenState extends State<RemoveProductScreen> {
                           ),
                         ),
                       ),
-                      10.ph,
                     ],
                   ),
                 ),

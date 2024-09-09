@@ -54,7 +54,7 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
               ),
               10.ph,
               SizedBox(
-                height: 100.h,
+                height: 105.h,
                 child: Row(
                   children: [
                     Column(
@@ -81,7 +81,7 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                       color: Colors.red,
                       strokeWidth: 1.5,
                       child: Container(
-                        width: 250.w,
+                        width: 260.w,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                             25.r,
@@ -90,7 +90,7 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                         ),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 10.w, vertical: 4.h),
+                              horizontal: 15.w, vertical: 10.h),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -185,6 +185,7 @@ class _MessageReportScreenState extends State<MessageReportScreen> {
                                 'View Profile',
                                 style: iStyleBlack13700.copyWith(
                                   color: Color(0xFFE47F46),
+                                  decoration: TextDecoration.underline,
                                 ),
                               ),
                             ],

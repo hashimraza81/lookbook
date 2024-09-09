@@ -46,30 +46,36 @@ class CreateWithScreen extends StatelessWidget {
                 ),
                 20.ph,
                 Obx(
-                  () => reusedButton(
-                    icon: Icons.arrow_forward_outlined,
-                    text: 'DESIGNER',
-                    ontap: () {
-                      controller.updateButtonSelection('designer');
-                      Get.toNamed('signup', arguments: 'DESIGNER');
-                    },
-                    color: controller.selectedButton.value == 'designer'
-                        ? AppColors.secondary
-                        : AppColors.greylight,
+                  () => SizedBox(
+                    height: 58.h,
+                    child: reusedButton(
+                      icon: Icons.arrow_forward_outlined,
+                      text: 'DESIGNER',
+                      ontap: () {
+                        controller.updateButtonSelection('designer');
+                        Get.toNamed('signup', arguments: 'DESIGNER');
+                      },
+                      color: controller.selectedButton.value == 'designer'
+                          ? AppColors.secondary
+                          : AppColors.greylight,
+                    ),
                   ),
                 ),
                 15.ph,
                 Obx(
-                  () => reusedButton(
-                    icon: Icons.arrow_forward_outlined,
-                    text: 'CUSTOMER',
-                    ontap: () {
-                      controller.updateButtonSelection('customer');
-                      Get.toNamed('signup', arguments: 'CUSTOMER');
-                    },
-                    color: controller.selectedButton.value == 'customer'
-                        ? AppColors.secondary
-                        : AppColors.greylight,
+                  () => SizedBox(
+                    height: 58.h,
+                    child: reusedButton(
+                      icon: Icons.arrow_forward_outlined,
+                      text: 'CUSTOMER',
+                      ontap: () {
+                        controller.updateButtonSelection('customer');
+                        Get.toNamed('signup', arguments: 'CUSTOMER');
+                      },
+                      color: controller.selectedButton.value == 'customer'
+                          ? AppColors.secondary
+                          : AppColors.greylight,
+                    ),
                   ),
                 ),
               ],

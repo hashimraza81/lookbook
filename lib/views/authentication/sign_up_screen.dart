@@ -160,17 +160,20 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   40.ph,
                   Obx(
-                    () => reusedButton(
-                      icon: Icons.arrow_forward_outlined,
-                      text: 'SIGNUP NOW!',
-                      ontap: controller.isButtonActive.value
-                          ? () {
-                              controller.signUp(role);
-                            }
-                          : null,
-                      color: controller.isButtonActive.value
-                          ? AppColors.secondary
-                          : AppColors.greylight,
+                    () => SizedBox(
+                      height: 58.h,
+                      child: reusedButton(
+                        icon: Icons.arrow_forward_outlined,
+                        text: 'SIGNUP NOW!',
+                        ontap: controller.isButtonActive.value
+                            ? () {
+                                controller.signUp(role);
+                              }
+                            : null,
+                        color: controller.isButtonActive.value
+                            ? AppColors.secondary
+                            : AppColors.greylight,
+                      ),
                     ),
                   ),
                 ],

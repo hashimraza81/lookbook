@@ -3,6 +3,7 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'constant/app_colors.dart';
+import 'constant/app_textstyle.dart';
 
 class ColorPickerWidget extends StatefulWidget {
   @override
@@ -24,9 +25,7 @@ class _ColorPickerWidgetState extends State<ColorPickerWidget> {
       children: [
         Text(
           'Colors',
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w400,
+          style: tSStyleBlack16600.copyWith(
             color: AppColors.primaryColor,
           ),
         ),

@@ -43,7 +43,6 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                 ],
               ),
             ),
-            10.ph,
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.w),
               child: Column(
@@ -76,14 +75,14 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                           style: tSStyleBlack16400,
                         ),
                         Text(
-                          'We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products.',
+                          'We work with monitoring programmes to ensure\ncompliance  with safety, health and quality standards for\nour products.',
                           style: tSStyleBlack12400.copyWith(
                             color: AppColors.text1,
                           ),
                         ),
                         Text(
                           'Phone Number',
-                          style: tSStyleBlack16400,
+                          style: tSStyleBlack16500,
                         ),
                         BuildLinks(
                           image: AppImages.phone,
@@ -92,7 +91,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                         ),
                         Text(
                           'Email',
-                          style: tSStyleBlack16400,
+                          style: tSStyleBlack16500,
                         ),
                         BuildLinks(
                           image: AppImages.mail,
@@ -101,7 +100,7 @@ class _DesignerDetailsScreenState extends State<DesignerDetailsScreen> {
                         ),
                         Text(
                           'Instagram',
-                          style: tSStyleBlack16400,
+                          style: tSStyleBlack16500,
                         ),
                         BuildLinks(
                           image: AppImages.social,

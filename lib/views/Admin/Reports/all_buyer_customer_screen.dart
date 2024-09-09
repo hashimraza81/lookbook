@@ -11,6 +11,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+import '../../../utils/components/custom_search_bar.dart';
 import 'Message_report_screen.dart';
 
 class AllBuyerCustomerScreen extends StatefulWidget {
@@ -53,13 +54,8 @@ class _AllBuyerCustomerScreenState extends State<AllBuyerCustomerScreen> {
                 10.ph,
                 SizedBox(
                   height: 43.h,
-                  child: SearchBar(
-                    backgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color(0xFFF8F9FE)),
-                    leading: Icon(Icons.search,
-                        color: Color(0xFF2F3036), size: 30.sp),
-                    hintText: 'Search...',
-                  ),
+                  width: 385.w,
+                  child: CustomSearchBar(),
                 ),
                 20.ph,
                 Container(

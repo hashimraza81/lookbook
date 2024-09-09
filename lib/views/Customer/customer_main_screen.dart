@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:lookbook/utils/components/constant/app_images.dart';
 import '../../controllers/bottom_nav_controller.dart';
 import '../../utils/components/Customer_dashboard_custom_app_bar.dart';
 import '../../utils/components/constant/app_colors.dart';
@@ -33,9 +35,11 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
               child: PageView(
                 controller: bottomNavController.pageController,
                 onPageChanged: (index) {
-                  bottomNavController.changeIndex(index);
+                  bottomNavController
+                      .changeIndex(index);
                 },
-                children: bottomNavController.screens,
+                children: bottomNavController
+                    .screens, // Ensure the screens list is correct
               ),
             ),
           ],
@@ -47,13 +51,13 @@ class _CustomerMainScreenState extends State<CustomerMainScreen> {
           },
           backgroundColor: AppColors.secondary,
           shape: const CircleBorder(),
-          child: Icon(Icons.qr_code_scanner, color: Colors.white),
+          child: SvgPicture.asset(AppImages.scanFrame, color: Colors.white),
         ),
         bottomNavigationBar: Obx(() {
           return CustomerCustomBottomNavigationBar(
             selectedIndex: bottomNavController.selectedIndex.value,
             onTap: (index) {
-              bottomNavController.changeIndex(index);
+              bottomNavController.changeIndex(index); // Change index on tap
             },
           );
         }),

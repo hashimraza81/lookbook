@@ -14,7 +14,7 @@ class AppImages extends AssetImage {
   static const String product1 = '$_assetsPath/product1.png';
 
 //Icons Svg
-
+  static const String UpdateProfileIcon = '$_iconPath/UpdateProfileIcon.svg';
   static const String googlelogo = '$_iconPath/GoogleLogo.svg';
   static const String extendIcon = '$_iconPath/ExtendIcon.svg';
   static const String applelogo = '$_iconPath/AppleLogo.svg';
@@ -27,6 +27,7 @@ class AppImages extends AssetImage {
   static const String add = '$_iconPath/add.svg';
   static const String plus = '$_iconPath/plus.svg';
   static const String signature = '$_iconPath/Signature.svg';
+  static const String scanFrame = '$_iconPath/ScanFrame.svg';
 
   static const String phone = '$_iconPath/phone.svg';
   static const String twitter= '$_iconPath/Twitter.svg';

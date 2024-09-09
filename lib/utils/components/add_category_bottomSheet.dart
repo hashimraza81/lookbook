@@ -45,7 +45,6 @@ class AddCategoryBottomsheet extends StatelessWidget {
                 )
               ],
             ),
-            60.ph,
             Text(
               'AddCategory',
               style: tSStyleBlack16400,
@@ -57,12 +56,15 @@ class AddCategoryBottomsheet extends StatelessWidget {
               controller: controller.categoryController,
               focusNode: controller.categoryFocusNode,
             ),
-            25.ph,
-            reusedButton(
-              text: 'ADD',
-              ontap: () {},
-              color: AppColors.secondary,
-              icon: Icons.add_box_outlined,
+            20.ph,
+            SizedBox(
+              height: 58.h,
+              child: reusedButton(
+                text: 'ADD',
+                ontap: () {},
+                color: AppColors.secondary,
+                icon: Icons.add_circle_outline_outlined,
+              ),
             )
           ],
         ),

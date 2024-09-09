@@ -34,57 +34,18 @@ class DesignerCustomMenu extends StatelessWidget {
             children: [
               Text(
                 'LOOK',
-                style: aStyleBlack18600.copyWith(
+                style: aStyleBlack20800.copyWith(
                   color: const Color(0xFF515152),
                 ),
               ),
               Text(
                 '      BOOK',
-                style: aStyleBlack18600,
+                style: aStyleBlack20800,
               ),
               SizedBox(
                 height: 40.0.h,
               ),
-              Menu(
-                text: 'Profile',
-                onTap: () {
-                  Get.toNamed('ProfileScreen');
-                },
-                index: 0,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Messages',
-                onTap: () {
-                  Get.toNamed('DesignerMessageChatScreen');
-                },
-                index: 1,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Notifications',
-                onTap: () {
-                  Get.toNamed('DesignerNotificationScreen');
-                },
-                index: 2,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
-              Menu(
-                text: 'Add Product',
-                onTap: () {
-                  Get.toNamed('addProduct');
-                },
-                index: 2,
-              ),
-              SizedBox(
-                height: 35.0.h,
-              ),
+
               Text(
                 'About Fashion Concierge',
                 style: oStyleBlack18600.copyWith(
@@ -97,6 +58,15 @@ class DesignerCustomMenu extends StatelessWidget {
               Text(
                 'We work with monitoring programmes to ensure compliance with safety, health and quality standards for our products',
                 style: tSStyleBlack16400,
+                textAlign: TextAlign.justify,
+              ),
+              SizedBox(
+                height: 10.0.h,
+              ),
+              Text(
+                'The Designer is responsible for adding products to the app. While they handle product-related tasks, they have no influence over the app’s UI or UX design decisions.',
+                style: tSStyleBlack16400,
+                textAlign: TextAlign.justify,
               ),
               const Spacer(),
               ElevatedButton(
@@ -117,7 +87,10 @@ class DesignerCustomMenu extends StatelessWidget {
                   'LOGOUT',
                   style: tSStyleBlack14400.copyWith(color: AppColors.white),
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20.0.h,
+              ),
             ],
           ),
         ),

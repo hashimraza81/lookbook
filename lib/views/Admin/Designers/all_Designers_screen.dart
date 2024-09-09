@@ -8,6 +8,7 @@ import '../../../utils/components/constant/app_colors.dart';
 import '../../../utils/components/constant/app_images.dart';
 import '../../../utils/components/constant/app_textstyle.dart';
 import '../../../utils/components/custom_app_bar.dart';
+import '../../../utils/components/custom_search_bar.dart';
 import 'Designer_details_screen.dart';
 
 class AllUserScreen extends StatefulWidget {
@@ -36,8 +37,8 @@ class _AllUserScreenState extends State<AllUserScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'DESIGNERS',
-                    style: tSStyleBlack18400,
+                    'D E S I G N E R S',
+                    style: tSStyleBlack18500,
                   ),
                   SvgPicture.asset(
                     AppImages.line,
@@ -50,13 +51,7 @@ class _AllUserScreenState extends State<AllUserScreen> {
             SizedBox(
               height: 43.h,
               width: 385.w,
-              child: SearchBar(
-                backgroundColor: WidgetStateColor.resolveWith(
-                    (states) => const Color(0xFFF8F9FE)),
-                leading: Icon(Icons.search,
-                    color: const Color(0xFF2F3036), size: 30.sp),
-                hintText: 'Search...',
-              ),
+              child: CustomSearchBar(),
             ),
             20.ph,
             SizedBox(
@@ -77,41 +72,46 @@ class _AllUserScreenState extends State<AllUserScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 30.0.r,
-                              backgroundColor: Colors.transparent,
-                              child: ClipOval(
-                                child: Image.asset(
-                                  AppImages.noti,
-                                  fit: BoxFit.cover,
-                                  width: 60.0.w,
-                                  height: 60.0.h,
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 10.w,
+                          ),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 25.0.r,
+                                backgroundColor: Colors.transparent,
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    AppImages.noti,
+                                    fit: BoxFit.cover,
+                                    width: 60.0.w,
+                                    height: 60.0.h,
+                                  ),
                                 ),
                               ),
-                            ),
-                            15.pw,
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Jhone Lane (Designer)',
-                                  style: iStyleBlack13700.copyWith(
-                                    color: AppColors.text3,
+                              15.pw,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Jhone Lane (Designer)',
+                                    style: iStyleBlack13700.copyWith(
+                                      color: AppColors.text3,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  '+49 40 60774609',
-                                  style: iStyleBlack15400.copyWith(
-                                    color: AppColors.text2,
-                                    decoration: TextDecoration.underline,
+                                  Text(
+                                    '+49 40 60774609',
+                                    style: iStyleBlack15400.copyWith(
+                                      color: AppColors.text2,
+                                      decoration: TextDecoration.underline,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                         Icon(
                           Icons.arrow_forward_outlined,

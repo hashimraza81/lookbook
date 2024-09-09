@@ -22,8 +22,8 @@ class DesignerNotificationScreen extends StatelessWidget {
               20.ph,
               Center(
                 child: Text(
-                  'NOTIFICATIONS',
-                  style: tSStyleBlack18400,
+                  'N O T I F I C A T I O N S',
+                  style: tSStyleBlack18600,
                 ),
               ),
               Center(
